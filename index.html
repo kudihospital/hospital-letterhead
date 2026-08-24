@@ -21,9 +21,7 @@
       color: #222;
     }
 
-    /* =========================
-       PATIENT FORM
-    ========================== */
+    /* PATIENT FORM */
 
     .form-container {
       max-width: 850px;
@@ -76,9 +74,7 @@
       color: white;
     }
 
-    /* =========================
-       A4 PAGE
-    ========================== */
+    /* A4 PAGE */
 
     .page {
       width: 210mm;
@@ -89,9 +85,7 @@
       padding: 12mm 15mm 25mm;
     }
 
-    /* =========================
-       HOSPITAL HEADER
-    ========================== */
+    /* HOSPITAL HEADER */
 
     .hospital-header {
       display: flex;
@@ -124,9 +118,7 @@
       font-size: 13px;
     }
 
-    /* =========================
-       PATIENT DETAILS
-    ========================== */
+    /* PATIENT DETAILS */
 
     .patient-title {
       margin-top: 18px;
@@ -156,9 +148,7 @@
       grid-column: span 2;
     }
 
-    /* =========================
-       LINE AFTER PATIENT DETAILS
-    ========================== */
+    /* LINE AFTER PATIENT DETAILS */
 
     .patient-line {
       margin-top: 20px;
@@ -170,17 +160,13 @@
       width: 100%;
     }
 
-    /* =========================
-       EMPTY CONTENT AREA
-    ========================== */
+    /* EMPTY CONTENT AREA */
 
     .content-area {
       min-height: 155mm;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     .hospital-footer {
       position: absolute;
@@ -199,9 +185,7 @@
       margin-bottom: 4px;
     }
 
-    /* =========================
-       MOBILE VIEW
-    ========================== */
+    /* MOBILE VIEW */
 
     @media screen and (max-width: 850px) {
 
@@ -227,17 +211,6 @@
         text-align: center;
       }
 
-      .doctor-section {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .doctor-left,
-      .doctor-right {
-        width: 100%;
-        text-align: center;
-      }
-
       .patient-details {
         grid-template-columns: 1fr;
       }
@@ -256,9 +229,7 @@
 
     }
 
-    /* =========================
-       PRINT SETTINGS
-    ========================== */
+    /* PRINT SETTINGS */
 
     @media print {
 
@@ -290,9 +261,7 @@
 
 <body>
 
-  <!-- =========================
-       PATIENT FORM
-  ========================== -->
+  <!-- PATIENT FORM -->
 
   <div class="form-container">
 
@@ -345,9 +314,7 @@
   </div>
 
 
-  <!-- =========================
-       A4 LETTERHEAD
-  ========================== -->
+  <!-- A4 LETTERHEAD -->
 
   <div class="page">
 
@@ -355,14 +322,15 @@
 
     <div class="hospital-header">
 
-    
+      <img
+        src="logo.png"
+        alt="KUDI Hospital Logo"
+        class="hospital-logo"
       >
 
       <div class="hospital-info">
 
-        <h1>
-          KUDI Hospital And Rehabilitation Center
-        </h1>
+        <h1>KUDI Hospital And Rehabilitation Center</h1>
 
         <p>
           Bheruji Mod, NH52, Near Raghu Palace Hotel,
@@ -379,29 +347,6 @@
     </div>
 
 
-    <!-- DOCTOR DETAILS -->
-
-    <div class="doctor-section">
-
-      <div class="doctor-left">
-
-        <strong>Dr. __________________</strong>
-
-        <br>
-
-        Qualification: __________________
-
-      </div>
-
-      <div class="doctor-right">
-
-        Registration No.: __________________
-
-      </div>
-
-    </div>
-
-
     <!-- PATIENT DETAILS -->
 
     <div class="patient-title">
@@ -412,51 +357,29 @@
     <div class="patient-details">
 
       <div class="detail full-row">
-
         <strong>Patient Name:</strong>
-
         <span id="printName"></span>
-
       </div>
 
-
       <div class="detail">
-
         <strong>UHID:</strong>
-
         <span id="printUHID"></span>
-
       </div>
 
-
       <div class="detail">
-
         <strong>Age / Sex:</strong>
-
-        <span id="printAge"></span>
-
-        /
-
+        <span id="printAge"></span> /
         <span id="printGender"></span>
-
       </div>
 
-
       <div class="detail">
-
         <strong>Mobile:</strong>
-
         <span id="printMobile"></span>
-
       </div>
 
-
       <div class="detail">
-
         <strong>Date:</strong>
-
         <span id="printDate"></span>
-
       </div>
 
     </div>
@@ -465,13 +388,11 @@
     <!-- LINE AFTER PATIENT DETAILS -->
 
     <div class="patient-line">
-
       <div class="line"></div>
-
     </div>
 
 
-    <!-- BLANK AREA -->
+    <!-- BLANK CONTENT AREA -->
 
     <div class="content-area"></div>
 
@@ -481,36 +402,23 @@
     <div class="hospital-footer">
 
       <div class="footer-title">
-
         KUDI Hospital And Rehabilitation Center
-
       </div>
 
-
       <div>
-
-        Bheruji Mod, NH52,
-        Near Raghu Palace Hotel,
+        Bheruji Mod, NH52, Near Raghu Palace Hotel,
         Reengus (Raj.) - 332404
-
       </div>
 
-
       <div>
-
         Contact: 8504001220 |
         Email: kudihospitals@gmail.com
-
       </div>
 
     </div>
 
   </div>
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
 
   <script>
 
@@ -523,35 +431,26 @@
       document.getElementById("printName").textContent =
         document.getElementById("patientName").value;
 
-
       document.getElementById("printUHID").textContent =
         document.getElementById("uhid").value;
-
 
       document.getElementById("printAge").textContent =
         document.getElementById("age").value;
 
-
       document.getElementById("printGender").textContent =
         document.getElementById("gender").value;
-
 
       document.getElementById("printMobile").textContent =
         document.getElementById("mobile").value;
 
-
       const dateValue =
         document.getElementById("date").value;
 
-
       if (dateValue) {
-
         document.getElementById("printDate").textContent =
           new Date(dateValue + "T00:00:00")
-          .toLocaleDateString("en-IN");
-
+            .toLocaleDateString("en-IN");
       }
-
 
       window.print();
 
