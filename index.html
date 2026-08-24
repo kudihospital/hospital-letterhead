@@ -2,19 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>KUDI Hospital Letterhead</title>
 
-  <style> .patient-line {
-  margin-top: 20px;
-  width: 100%;
-}
+  <style>
 
-.line {
-  border-top: 1px solid #000;
-  width: 100%;
-}
     * {
       box-sizing: border-box;
     }
@@ -24,11 +18,16 @@
       padding: 20px;
       font-family: Arial, sans-serif;
       background: #f2f2f2;
+      color: #222;
     }
 
+    /* =========================
+       PATIENT FORM
+    ========================== */
+
     .form-container {
-      max-width: 800px;
-      margin: 0 auto 20px;
+      max-width: 850px;
+      margin: 0 auto 25px;
       background: white;
       padding: 25px;
       border-radius: 10px;
@@ -37,10 +36,17 @@
     .form-container h2 {
       text-align: center;
       margin-top: 0;
+      color: #16325c;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
 
     label {
@@ -55,12 +61,13 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      margin-top: 20px;
+      padding: 13px;
       font-size: 16px;
       cursor: pointer;
       border: none;
@@ -69,13 +76,22 @@
       color: white;
     }
 
+    /* =========================
+       A4 PAGE
+    ========================== */
+
     .page {
       width: 210mm;
       min-height: 297mm;
       margin: auto;
       background: white;
-      padding: 12mm 15mm;
+      position: relative;
+      padding: 12mm 15mm 25mm;
     }
+
+    /* =========================
+       HOSPITAL HEADER
+    ========================== */
 
     .hospital-header {
       display: flex;
@@ -83,7 +99,6 @@
       gap: 15px;
       border-bottom: 3px solid #16325c;
       padding-bottom: 10px;
-      margin-bottom: 20px;
     }
 
     .hospital-logo {
@@ -99,7 +114,7 @@
     }
 
     .hospital-header h1 {
-      margin: 0 0 8px;
+      margin: 0 0 7px;
       font-size: 24px;
       color: #16325c;
     }
@@ -109,20 +124,166 @@
       font-size: 13px;
     }
 
+    /* =========================
+       DOCTOR DETAILS
+    ========================== */
+
+    .doctor-section {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: 1px solid #16325c;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .doctor-left {
+      width: 60%;
+    }
+
+    .doctor-right {
+      width: 40%;
+      text-align: right;
+    }
+
+    /* =========================
+       PATIENT DETAILS
+    ========================== */
+
+    .patient-title {
+      margin-top: 18px;
+      background: #16325c;
+      color: white;
+      padding: 7px 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
     .patient-details {
+      border: 1px solid #16325c;
+      border-top: none;
+      padding: 12px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px 30px;
-      margin-top: 20px;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 15px;
+      font-size: 14px;
     }
 
     .detail {
-      font-size: 16px;
+      padding-bottom: 5px;
       border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
     }
 
+    .detail.full-row {
+      grid-column: span 2;
+    }
+
+    /* =========================
+       LINE AFTER PATIENT DETAILS
+    ========================== */
+
+    .patient-line {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .line {
+      border-top: 1px solid #000;
+      width: 100%;
+    }
+
+    /* =========================
+       EMPTY CONTENT AREA
+    ========================== */
+
+    .content-area {
+      min-height: 155mm;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .hospital-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 15mm;
+      right: 15mm;
+      border-top: 2px solid #16325c;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .footer-title {
+      font-weight: bold;
+      color: #16325c;
+      margin-bottom: 4px;
+    }
+
+    /* =========================
+       MOBILE VIEW
+    ========================== */
+
+    @media screen and (max-width: 850px) {
+
+      body {
+        padding: 10px;
+      }
+
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hospital-header {
+        flex-direction: column;
+      }
+
+      .hospital-info {
+        text-align: center;
+      }
+
+      .doctor-section {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .doctor-left,
+      .doctor-right {
+        width: 100%;
+        text-align: center;
+      }
+
+      .patient-details {
+        grid-template-columns: 1fr;
+      }
+
+      .detail.full-row {
+        grid-column: span 1;
+      }
+
+      .hospital-footer {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 30px;
+      }
+
+    }
+
+    /* =========================
+       PRINT SETTINGS
+    ========================== */
+
     @media print {
+
       body {
         padding: 0;
         background: white;
@@ -136,73 +297,97 @@
         width: 210mm;
         min-height: 297mm;
         margin: 0;
-        padding: 12mm 15mm;
+        padding: 12mm 15mm 25mm;
       }
 
       @page {
         size: A4;
         margin: 0;
       }
+
     }
 
-    @media screen and (max-width: 850px) {
-      .page {
-        width: 100%;
-        min-height: auto;
-      }
-    }
-  </style> 
+  </style>
 </head>
 
 <body>
+
+  <!-- =========================
+       PATIENT FORM
+  ========================== -->
 
   <div class="form-container">
 
     <h2>Patient Details</h2>
 
-    <div class="form-group">
-      <label for="patientName">Patient Name</label>
-      <input type="text" id="patientName">
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Patient Name</label>
+        <input type="text" id="patientName">
+      </div>
+
+      <div class="form-group">
+        <label>UHID</label>
+        <input type="text" id="uhid">
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" id="age">
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" id="mobile">
+      </div>
+
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="date">
+      </div>
+
     </div>
 
-    <div class="form-group">
-      <label for="age">Age</label>
-      <input type="number" id="age">
-    </div>
-
-    <div class="form-group">
-      <label for="gender">Gender</label>
-
-      <select id="gender">
-        <option value="">Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="uhid">Patient ID / UHID</label>
-      <input type="text" id="uhid">
-    </div>
-
-    <div class="form-group">
-      <label for="mobile">Mobile Number</label>
-      <input type="text" id="mobile">
-    </div>
-
-    <button onclick="printLetter()">Print Letterhead</button>
+    <button onclick="printLetter()">
+      Print Letterhead
+    </button>
 
   </div>
 
 
+  <!-- =========================
+       A4 LETTERHEAD
+  ========================== -->
+
   <div class="page">
+
+    <!-- HOSPITAL HEADER -->
 
     <div class="hospital-header">
 
+      <img
+        src="logo.png"
+        alt="KUDI Hospital Logo"
+        class="hospital-logo"
+      >
+
       <div class="hospital-info">
 
-        <h1>KUDI Hospital And Rehabilitation Center</h1>
+        <h1>
+          KUDI Hospital And Rehabilitation Center
+        </h1>
 
         <p>
           Bheruji Mod, NH52, Near Raghu Palace Hotel,
@@ -210,73 +395,193 @@
         </p>
 
         <p>
-          <div>
-  Contact: 91-8504001220 | Email: kudihospitals@gmail.com
-</div>
+          Contact: 8504001220 |
+          Email: kudihospitals@gmail.com
+        </p>
 
       </div>
 
     </div>
 
 
+    <!-- DOCTOR DETAILS -->
+
+    <div class="doctor-section">
+
+      <div class="doctor-left">
+
+        <strong>Dr. __________________</strong>
+
+        <br>
+
+        Qualification: __________________
+
+      </div>
+
+      <div class="doctor-right">
+
+        Registration No.: __________________
+
+      </div>
+
+    </div>
+
+
+    <!-- PATIENT DETAILS -->
+
+    <div class="patient-title">
+      PATIENT DETAILS
+    </div>
+
+
     <div class="patient-details">
 
-  <div class="detail patient-name">
-    <strong>Patient Name:</strong>
-    <span id="printName"></span>
-  </div>
+      <div class="detail full-row">
 
-  <div class="detail">
-    <strong>Age / Sex:</strong>
-    <span id="printAge"></span> /
-    <span id="printGender"></span>
-  </div>
+        <strong>Patient Name:</strong>
 
-  <div class="detail">
-    <strong>UHID:</strong>
-    <span id="printUHID"></span>
-  </div>
+        <span id="printName"></span>
 
-  <div class="detail">
-    <strong>Date:</strong>
-    <span id="printDate"></span>
-  </div>
+      </div>
 
-  <div class="detail">
-    <strong>Mobile:</strong>
-    <span id="printMobile"></span>
-  </div>
 
-</div> 
+      <div class="detail">
+
+        <strong>UHID:</strong>
+
+        <span id="printUHID"></span>
+
+      </div>
+
+
+      <div class="detail">
+
+        <strong>Age / Sex:</strong>
+
+        <span id="printAge"></span>
+
+        /
+
+        <span id="printGender"></span>
+
+      </div>
+
+
+      <div class="detail">
+
+        <strong>Mobile:</strong>
+
+        <span id="printMobile"></span>
+
+      </div>
+
+
+      <div class="detail">
+
+        <strong>Date:</strong>
+
+        <span id="printDate"></span>
+
+      </div>
+
+    </div>
+
+
+    <!-- LINE AFTER PATIENT DETAILS -->
+
+    <div class="patient-line">
+
+      <div class="line"></div>
+
+    </div>
+
+
+    <!-- BLANK AREA -->
+
+    <div class="content-area"></div>
+
+
+    <!-- FOOTER -->
+
+    <div class="hospital-footer">
+
+      <div class="footer-title">
+
+        KUDI Hospital And Rehabilitation Center
+
+      </div>
+
+
+      <div>
+
+        Bheruji Mod, NH52,
+        Near Raghu Palace Hotel,
+        Reengus (Raj.) - 332404
+
+      </div>
+
+
+      <div>
+
+        Contact: 8504001220 |
+        Email: kudihospitals@gmail.com
+
+      </div>
 
     </div>
 
   </div>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script>
+
+    document.getElementById("date").value =
+      new Date().toISOString().split("T")[0];
+
+
     function printLetter() {
 
       document.getElementById("printName").textContent =
         document.getElementById("patientName").value;
 
-      document.getElementById("printAge").textContent =
-        document.getElementById("age").value;
-
-      document.getElementById("printGender").textContent =
-        document.getElementById("gender").value;
 
       document.getElementById("printUHID").textContent =
         document.getElementById("uhid").value;
 
+
+      document.getElementById("printAge").textContent =
+        document.getElementById("age").value;
+
+
+      document.getElementById("printGender").textContent =
+        document.getElementById("gender").value;
+
+
       document.getElementById("printMobile").textContent =
         document.getElementById("mobile").value;
 
-      document.getElementById("printDate").textContent =
-        new Date().toLocaleDateString("en-IN");
+
+      const dateValue =
+        document.getElementById("date").value;
+
+
+      if (dateValue) {
+
+        document.getElementById("printDate").textContent =
+          new Date(dateValue + "T00:00:00")
+          .toLocaleDateString("en-IN");
+
+      }
+
 
       window.print();
+
     }
+
   </script>
 
 </body>
