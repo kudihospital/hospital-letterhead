@@ -95,13 +95,6 @@
       padding-bottom: 10px;
     }
 
-    .hospital-logo {
-      width: 85px;
-      height: 85px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
     .hospital-info {
       flex: 1;
       text-align: center;
@@ -276,7 +269,7 @@
 
       <div class="form-group">
         <label>UHID</label>
-        <input type="text" id="uhid">
+        <input type="text" id="uhid" readonly>
       </div>
 
       <div class="form-group">
@@ -322,7 +315,6 @@
 
     <div class="hospital-header">
 
-
       <div class="hospital-info">
 
         <h1>KUDI Hospital And Rehabilitation Center</h1>
@@ -334,7 +326,7 @@
 
         <p>
           Contact: 8504001220 |
-              website: www.kudihospital.in
+          website: www.kudihospital.in
         </p>
 
       </div>
@@ -407,7 +399,7 @@
 
       <div>
         Contact: 8504001220 |
-             website: www.kudihospital.in
+        website: www.kudihospital.in
       </div>
 
     </div>
@@ -417,37 +409,111 @@
 
   <script>
 
+    /* =========================================
+       UHID AUTO NUMBER
+       KHRC/001 → KHRC/002 → KHRC/003
+       ========================================= */
+
+    function getUHID() {
+
+      let number =
+        Number(
+          localStorage.getItem("kudiUHIDNumber")
+        ) || 1;
+
+      return "KHRC/" +
+        String(number).padStart(3, "0");
+
+    }
+
+
+    function increaseUHID() {
+
+      let number =
+        Number(
+          localStorage.getItem("kudiUHIDNumber")
+        ) || 1;
+
+      localStorage.setItem(
+        "kudiUHIDNumber",
+        number + 1
+      );
+
+    }
+
+
+    /* SET CURRENT UHID */
+
+    document.getElementById("uhid").value =
+      getUHID();
+
+
+    /* SET TODAY DATE */
+
     document.getElementById("date").value =
       new Date().toISOString().split("T")[0];
 
 
+    /* PRINT LETTER */
+
     function printLetter() {
+
+      /* GET CURRENT UHID */
+
+      const currentUHID =
+        getUHID();
+
+      document.getElementById("uhid").value =
+        currentUHID;
+
+
+      /* PATIENT DETAILS */
 
       document.getElementById("printName").textContent =
         document.getElementById("patientName").value;
 
+
       document.getElementById("printUHID").textContent =
-        document.getElementById("uhid").value;
+        currentUHID;
+
 
       document.getElementById("printAge").textContent =
         document.getElementById("age").value;
 
+
       document.getElementById("printGender").textContent =
         document.getElementById("gender").value;
 
+
       document.getElementById("printMobile").textContent =
         document.getElementById("mobile").value;
+
+
+      /* DATE */
 
       const dateValue =
         document.getElementById("date").value;
 
       if (dateValue) {
+
         document.getElementById("printDate").textContent =
-          new Date(dateValue + "T00:00:00")
-            .toLocaleDateString("en-IN");
+          new Date(
+            dateValue + "T00:00:00"
+          ).toLocaleDateString("en-IN");
+
       }
 
-      window.print();
+
+      /* INCREASE UHID FOR NEXT PATIENT */
+
+      increaseUHID();
+
+
+      /* PRINT */
+
+      setTimeout(function() {
+        window.print();
+      }, 200);
 
     }
 
