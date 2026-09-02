@@ -268,8 +268,8 @@
       </div>
 
       <div class="form-group">
-        <label>UHID</label>
-        <input type="text" id="uhid" readonly>
+        <label>OPD Number</label>
+        <input type="text" id="opdNumber" readonly>
       </div>
 
       <div class="form-group">
@@ -296,6 +296,11 @@
       <div class="form-group">
         <label>Date</label>
         <input type="date" id="date">
+      </div>
+
+      <div class="form-group">
+        <label>Consultation Fee</label>
+        <input type="text" id="consultationFee" value="₹100" readonly>
       </div>
 
     </div>
@@ -349,8 +354,8 @@
       </div>
 
       <div class="detail">
-        <strong>UHID:</strong>
-        <span id="printUHID"></span>
+        <strong>OPD No.:</strong>
+        <span id="printOPD"></span>
       </div>
 
       <div class="detail">
@@ -367,6 +372,11 @@
       <div class="detail">
         <strong>Date:</strong>
         <span id="printDate"></span>
+      </div>
+
+      <div class="detail">
+        <strong>Consultation Fee:</strong>
+        <span id="printFee">₹100</span>
       </div>
 
     </div>
@@ -410,42 +420,42 @@
   <script>
 
     /* =========================================
-       UHID AUTO NUMBER
-       KHRC/001 → KHRC/002 → KHRC/003
+       OPD AUTO NUMBER
+       OPD/001 → OPD/002 → OPD/003
        ========================================= */
 
-    function getUHID() {
+    function getOPDNumber() {
 
       let number =
         Number(
-          localStorage.getItem("kudiUHIDNumber")
+          localStorage.getItem("kudiOPDNumber")
         ) || 1;
 
-      return "KHRC/" +
+      return "OPD/" +
         String(number).padStart(3, "0");
 
     }
 
 
-    function increaseUHID() {
+    function increaseOPDNumber() {
 
       let number =
         Number(
-          localStorage.getItem("kudiUHIDNumber")
+          localStorage.getItem("kudiOPDNumber")
         ) || 1;
 
       localStorage.setItem(
-        "kudiUHIDNumber",
+        "kudiOPDNumber",
         number + 1
       );
 
     }
 
 
-    /* SET CURRENT UHID */
+    /* SET CURRENT OPD NUMBER */
 
-    document.getElementById("uhid").value =
-      getUHID();
+    document.getElementById("opdNumber").value =
+      getOPDNumber();
 
 
     /* SET TODAY DATE */
@@ -458,13 +468,13 @@
 
     function printLetter() {
 
-      /* GET CURRENT UHID */
+      /* GET CURRENT OPD NUMBER */
 
-      const currentUHID =
-        getUHID();
+      const currentOPD =
+        getOPDNumber();
 
-      document.getElementById("uhid").value =
-        currentUHID;
+      document.getElementById("opdNumber").value =
+        currentOPD;
 
 
       /* PATIENT DETAILS */
@@ -473,8 +483,8 @@
         document.getElementById("patientName").value;
 
 
-      document.getElementById("printUHID").textContent =
-        currentUHID;
+      document.getElementById("printOPD").textContent =
+        currentOPD;
 
 
       document.getElementById("printAge").textContent =
@@ -487,6 +497,10 @@
 
       document.getElementById("printMobile").textContent =
         document.getElementById("mobile").value;
+
+
+      document.getElementById("printFee").textContent =
+        document.getElementById("consultationFee").value;
 
 
       /* DATE */
@@ -504,9 +518,9 @@
       }
 
 
-      /* INCREASE UHID FOR NEXT PATIENT */
+      /* INCREASE OPD NUMBER FOR NEXT PATIENT */
 
-      increaseUHID();
+      increaseOPDNumber();
 
 
       /* PRINT */
