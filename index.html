@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>KUDI Hospital Letterhead</title>
+
   <style>
+
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       padding: 20px;
-      font-family: Arial, sans-serif;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
       background: #f2f2f2;
       color: #222;
     }
+
     /* =========================
        PATIENT FORM
     ========================= */
+
     .form-container {
       max-width: 850px;
       margin: 0 auto 25px;
@@ -25,27 +31,33 @@
       padding: 25px;
       border-radius: 10px;
     }
+
     .form-container h2 {
       text-align: center;
       margin-top: 0;
       color: #16325c;
     }
+
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
     }
+
     .form-group {
       margin-bottom: 5px;
     }
+
     .form-group.full-width {
       grid-column: span 2;
     }
+
     label {
       display: block;
       margin-bottom: 6px;
       font-weight: bold;
     }
+
     input,
     select {
       width: 100%;
@@ -54,6 +66,7 @@
       border-radius: 5px;
       font-size: 15px;
     }
+
     button {
       width: 100%;
       margin-top: 20px;
@@ -65,9 +78,11 @@
       background: #16325c;
       color: white;
     }
+
     /* =========================
        A4 PAGE
     ========================= */
+
     .page {
       width: 210mm;
       min-height: 297mm;
@@ -76,9 +91,11 @@
       position: relative;
       padding: 12mm 15mm 25mm;
     }
+
     /* =========================
        HOSPITAL HEADER
     ========================= */
+
     .hospital-header {
       display: flex;
       align-items: center;
@@ -86,22 +103,27 @@
       border-bottom: 3px solid #16325c;
       padding-bottom: 10px;
     }
+
     .hospital-info {
       flex: 1;
       text-align: center;
     }
+
     .hospital-header h1 {
       margin: 0 0 7px;
       font-size: 24px;
       color: #16325c;
     }
+
     .hospital-header p {
       margin: 4px 0;
       font-size: 13px;
     }
+
     /* =========================
        PATIENT DETAILS
     ========================= */
+
     .patient-title {
       margin-top: 18px;
       background: #16325c;
@@ -110,6 +132,7 @@
       font-weight: bold;
       font-size: 14px;
     }
+
     .patient-details {
       border: 1px solid #16325c;
       border-top: none;
@@ -119,68 +142,92 @@
       gap: 15px;
       font-size: 14px;
     }
+
     .detail {
       padding-bottom: 5px;
       border-bottom: 1px solid #ddd;
     }
+
     .detail.full-row {
       grid-column: span 2;
     }
+
     .detail.address-row {
       grid-column: span 3;
     }
+
     /* =========================
        LINE AFTER PATIENT DETAILS
     ========================= */
+
     .patient-line {
-      margin-top: 20px;
+      margin-top: 18px;
       width: 100%;
     }
+
     .line {
       border-top: 1px solid #000;
       width: 100%;
     }
+
     /* =========================
-       DOCTOR WRITING AREA
+       MAIN WRITING AREA
     ========================= */
+
     .doctor-writing-area {
       display: grid;
       grid-template-columns: 35% 65%;
       min-height: 160mm;
       margin-top: 10px;
     }
-    /* LEFT SIDE */
+
+    /* =========================
+       LEFT SIDE - सुविधाएँ
+    ========================= */
+
     .left-notes {
       border-right: 1px solid #000;
       padding: 10px 12px 10px 0;
     }
-    .note-section {
-      margin-bottom: 12px;
+
+    .facilities-section {
+      width: 100%;
+      padding-top: 5px;
     }
-    .note-section strong {
-      font-size: 14px;
-      display: block;
-      margin-bottom: 7px;
-    }
-    .writing-space {
-      min-height: 20mm;
-      border-bottom: 1px solid #ddd;
-    }
-    /* RIGHT SIDE RX AREA */
-    .rx-area {
-      padding: 10px 0 10px 15px;
-    }
-    .rx-title {
-      font-size: 24px;
+
+    .facilities-title {
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      text-align: center;
     }
-    .rx-writing-space {
-      min-height: 140mm;
+
+    .facility-list {
+      text-align: left;
+      padding-left: 24px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
     }
+
+    .facility-list li {
+      margin-bottom: 3px;
+    }
+
+    /* =========================
+       RIGHT SIDE
+       FULL BLANK WRITING AREA
+    ========================= */
+
+    .right-writing-area {
+      padding: 10px 0 10px 15px;
+      min-height: 160mm;
+    }
+
     /* =========================
        FOOTER
     ========================= */
+
     .hospital-footer {
       position: absolute;
       bottom: 10mm;
@@ -191,45 +238,58 @@
       text-align: center;
       font-size: 11px;
     }
+
     .footer-title {
       font-weight: bold;
       color: #16325c;
       margin-bottom: 4px;
     }
+
     /* =========================
        MOBILE VIEW
     ========================= */
+
     @media screen and (max-width: 850px) {
+
       body {
         padding: 10px;
       }
+
       .page {
         width: 100%;
         min-height: auto;
         padding: 20px;
       }
+
       .form-grid {
         grid-template-columns: 1fr;
       }
+
       .form-group.full-width {
         grid-column: span 1;
       }
+
       .hospital-header {
         flex-direction: column;
       }
+
       .hospital-info {
         text-align: center;
       }
+
       .patient-details {
         grid-template-columns: 1fr;
       }
+
       .detail.full-row,
       .detail.address-row {
         grid-column: span 1;
       }
+
       .doctor-writing-area {
         grid-template-columns: 35% 65%;
       }
+
       .hospital-footer {
         position: relative;
         left: auto;
@@ -237,52 +297,72 @@
         bottom: auto;
         margin-top: 30px;
       }
+
     }
+
     /* =========================
        PRINT SETTINGS
     ========================= */
+
     @media print {
+
       body {
         padding: 0;
         background: white;
       }
+
       .form-container {
         display: none;
       }
+
       .page {
         width: 210mm;
         min-height: 297mm;
         margin: 0;
         padding: 12mm 15mm 25mm;
       }
+
       @page {
         size: A4;
         margin: 0;
       }
+
     }
+
   </style>
 </head>
+
 <body>
+
+
   <!-- =========================
        PATIENT FORM
   ========================= -->
+
   <div class="form-container">
+
     <h2>Patient Details</h2>
+
     <div class="form-grid">
+
       <div class="form-group">
         <label>Patient Name</label>
         <input type="text" id="patientName">
       </div>
+
       <div class="form-group">
         <label>OPD Number</label>
         <input type="text" id="opdNumber" readonly>
       </div>
+
       <div class="form-group">
         <label>Age</label>
         <input type="number" id="age">
       </div>
+
       <div class="form-group">
         <label>Gender</label>
+
         <select id="gender">
           <option value="">Select Gender</option>
           <option>Male</option>
@@ -290,14 +370,17 @@
           <option>Other</option>
         </select>
       </div>
+
       <div class="form-group">
         <label>Mobile Number</label>
         <input type="text" id="mobile">
       </div>
+
       <div class="form-group">
         <label>Date</label>
         <input type="date" id="date">
       </div>
+
       <div class="form-group">
         <label>Consultation Fee</label>
         <input
@@ -307,6 +390,7 @@
           readonly
         >
       </div>
+
       <div class="form-group full-width">
         <label>Address</label>
         <input
@@ -315,258 +399,349 @@
           placeholder="Enter Patient Address"
         >
       </div>
+
     </div>
+
     <button onclick="printLetter()">
       Print Letterhead
     </button>
+
   </div>
+
+
   <!-- =========================
        A4 LETTERHEAD
   ========================= -->
+
   <div class="page">
+
+
     <!-- HOSPITAL HEADER -->
+
     <div class="hospital-header">
+
       <div class="hospital-info">
-        <h1>
-          KUDI Hospital And Rehabilitation Center
-        </h1>
+
+        <h1>KUDI Hospital And Rehabilitation Center</h1>
+
         <p>
-          Bheruji Mod, NH52, Near Raghu Palace Hotel,
+          Bheruji Mod, NH52,
+          Near Raghu Palace Hotel,
           Reengus (Raj.) - 332404
         </p>
+
         <p>
           Contact: 8504001220 |
           website: www.kudihospital.in
         </p>
+
       </div>
+
     </div>
-    <!-- PATIENT DETAILS TITLE -->
+
+
+    <!-- PATIENT DETAILS -->
+
     <div class="patient-title">
       PATIENT DETAILS
     </div>
-    <!-- PATIENT DETAILS -->
+
+
     <div class="patient-details">
+
+
       <div class="detail full-row">
+
         <strong>Patient Name:</strong>
+
         <span id="printName"></span>
+
       </div>
+
+
       <div class="detail">
+
         <strong>OPD No.:</strong>
+
         <span id="printOPD"></span>
+
       </div>
+
+
       <div class="detail">
+
         <strong>Age / Sex:</strong>
+
         <span id="printAge"></span>
         /
         <span id="printGender"></span>
+
       </div>
+
+
       <div class="detail">
+
         <strong>Mobile:</strong>
+
         <span id="printMobile"></span>
+
       </div>
+
+
       <div class="detail">
+
         <strong>Date:</strong>
+
         <span id="printDate"></span>
+
       </div>
+
+
       <div class="detail">
+
         <strong>Consultation Fee:</strong>
+
         <span id="printFee">₹100</span>
+
       </div>
+
+
       <div class="detail address-row">
+
         <strong>Address:</strong>
+
         <span id="printAddress"></span>
+
       </div>
+
+
     </div>
-    <!-- LINE AFTER PATIENT DETAILS -->
+
+
+    <!-- LINE -->
+
     <div class="patient-line">
       <div class="line"></div>
     </div>
+
+
     <!-- =========================
-         DOCTOR WRITING AREA
+         MAIN WRITING AREA
     ========================= -->
+
     <div class="doctor-writing-area">
-      <!-- LEFT SIDE -->
+
+
+      <!-- LEFT SIDE : सुविधाएँ -->
+
       <div class="left-notes">
-        <!-- PRESENTING COMPLAINTS -->
-        <div class="note-section">
-          <strong>
-            Presenting Complaints:
-          </strong>
-          <div class="writing-space"></div>
+
+        <div class="facilities-section">
+
+          <div class="facilities-title">
+            सुविधाएँ
+          </div>
+
+
+          <ul class="facility-list">
+
+            <li>कमर दर्द</li>
+            <li>घुटना दर्द</li>
+            <li>गर्दन दर्द</li>
+            <li>लकवा</li>
+            <li>Cerebral Palsy</li>
+            <li>Post-Operative</li>
+            <li>THR</li>
+            <li>TKR</li>
+            <li>Disc</li>
+            <li>Sciatica pain</li>
+            <li>Disc Bulge</li>
+            <li>Frozen Shoulder</li>
+            <li>Post Fracture Rehab</li>
+            <li>Sports Injury</li>
+            <li>Pediatric Care</li>
+
+          </ul>
+
         </div>
-        <!-- PAST HISTORY -->
-        <div class="note-section">
-          <strong>
-            Past History:
-          </strong>
-          <div class="writing-space"></div>
-        </div>
-        <!-- FINAL DIAGNOSIS -->
-        <div class="note-section">
-          <strong>
-            Final Diagnosis:
-          </strong>
-          <div class="writing-space"></div>
-        </div>
-        <!-- TREATMENT -->
-        <div class="note-section">
-          <strong>
-            Treatment:
-          </strong>
-          <div class="writing-space"></div>
-        </div>
+
       </div>
-      <!-- RIGHT SIDE RX -->
-      <div class="rx-area">
-        <div class="rx-title">
-          Rx
-        </div>
-        <div class="rx-writing-space"></div>
+
+
+      <!-- RIGHT SIDE :
+           FULL BLANK WRITING AREA -->
+
+      <div class="right-writing-area">
       </div>
+
+
     </div>
-    <!-- =========================
-         FOOTER
-    ========================= -->
+
+
+    <!-- FOOTER -->
+
     <div class="hospital-footer">
+
       <div class="footer-title">
         KUDI Hospital And Rehabilitation Center
       </div>
+
       <div>
         Bheruji Mod, NH52,
         Near Raghu Palace Hotel,
         Reengus (Raj.) - 332404
       </div>
+
       <div>
         Contact: 8504001220 |
         website: www.kudihospital.in
       </div>
+
     </div>
+
+
   </div>
+
+
   <!-- =========================
        JAVASCRIPT
   ========================= -->
+
   <script>
-    /* =========================
-       OPD AUTO NUMBER
-    ========================= */
+
+    /* OPD AUTO NUMBER */
+
     function getOPDNumber() {
+
       let number =
         Number(
-          localStorage.getItem(
-            "kudiOPDNumber"
-          )
+          localStorage.getItem("kudiOPDNumber")
         ) || 1;
-      return
-        "OPD/" +
+
+      return "OPD/" +
         String(number).padStart(3, "0");
+
     }
+
+
     function increaseOPDNumber() {
+
       let number =
         Number(
-          localStorage.getItem(
-            "kudiOPDNumber"
-          )
+          localStorage.getItem("kudiOPDNumber")
         ) || 1;
+
       localStorage.setItem(
         "kudiOPDNumber",
         number + 1
       );
+
     }
+
+
     /* SET CURRENT OPD NUMBER */
-    document.getElementById(
-      "opdNumber"
-    ).value =
+
+    document.getElementById("opdNumber").value =
       getOPDNumber();
+
+
     /* SET TODAY DATE */
-    document.getElementById(
-      "date"
-    ).value =
+
+    document.getElementById("date").value =
       new Date()
         .toISOString()
         .split("T")[0];
-    /* =========================
-       PRINT LETTER
-    ========================= */
+
+
+    /* PRINT LETTER */
+
     function printLetter() {
+
+
       /* CURRENT OPD NUMBER */
+
       const currentOPD =
         getOPDNumber();
-      document.getElementById(
-        "opdNumber"
-      ).value =
+
+
+      document.getElementById("opdNumber").value =
         currentOPD;
+
+
       /* PATIENT NAME */
-      document.getElementById(
-        "printName"
-      ).textContent =
-        document.getElementById(
-          "patientName"
-        ).value;
+
+      document.getElementById("printName").textContent =
+        document.getElementById("patientName").value;
+
+
       /* OPD NUMBER */
-      document.getElementById(
-        "printOPD"
-      ).textContent =
+
+      document.getElementById("printOPD").textContent =
         currentOPD;
+
+
       /* AGE */
-      document.getElementById(
-        "printAge"
-      ).textContent =
-        document.getElementById(
-          "age"
-        ).value;
+
+      document.getElementById("printAge").textContent =
+        document.getElementById("age").value;
+
+
       /* GENDER */
-      document.getElementById(
-        "printGender"
-      ).textContent =
-        document.getElementById(
-          "gender"
-        ).value;
+
+      document.getElementById("printGender").textContent =
+        document.getElementById("gender").value;
+
+
       /* MOBILE */
-      document.getElementById(
-        "printMobile"
-      ).textContent =
-        document.getElementById(
-          "mobile"
-        ).value;
+
+      document.getElementById("printMobile").textContent =
+        document.getElementById("mobile").value;
+
+
       /* CONSULTATION FEE */
-      document.getElementById(
-        "printFee"
-      ).textContent =
-        document.getElementById(
-          "consultationFee"
-        ).value;
+
+      document.getElementById("printFee").textContent =
+        document.getElementById("consultationFee").value;
+
+
       /* ADDRESS */
-      document.getElementById(
-        "printAddress"
-      ).textContent =
-        document.getElementById(
-          "address"
-        ).value;
+
+      document.getElementById("printAddress").textContent =
+        document.getElementById("address").value;
+
+
       /* DATE */
+
       const dateValue =
-        document.getElementById(
-          "date"
-        ).value;
+        document.getElementById("date").value;
+
+
       if (dateValue) {
-        document.getElementById(
-          "printDate"
-        ).textContent =
+
+        document.getElementById("printDate").textContent =
           new Date(
             dateValue + "T00:00:00"
-          ).toLocaleDateString(
-            "en-IN"
-          );
+          ).toLocaleDateString("en-IN");
+
       }
+
+
       /* INCREASE OPD NUMBER */
+
       increaseOPDNumber();
+
+
       /* PRINT */
-      setTimeout(
-        function() {
-          window.print();
-        },
-        200
-      );
+
+      setTimeout(function() {
+
+        window.print();
+
+      }, 200);
+
     }
+
   </script>
+
 </body>
 </html>
