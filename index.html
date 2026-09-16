@@ -1,747 +1,1682 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KUDI Hospital Letterhead</title>
+<title>KUDI Hospital Letterhead</title>
 
-  <style>
+<style>
 
-    * {
-      box-sizing: border-box;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, "Noto Sans Devanagari", sans-serif;
-      background: #f2f2f2;
-      color: #222;
-    }
+body{
+  margin:0;
+  padding:20px;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f2f2f2;
+  color:#222;
+}
 
-    /* =========================
-       PATIENT FORM
-    ========================= */
+/* =========================
+   FORM
+========================= */
 
-    .form-container {
-      max-width: 850px;
-      margin: 0 auto 25px;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-    }
+.form-container{
+  max-width:850px;
+  margin:0 auto 25px;
+  background:white;
+  padding:25px;
+  border-radius:10px;
+}
 
-    .form-container h2 {
-      text-align: center;
-      margin-top: 0;
-      color: #16325c;
-    }
+.form-container h2{
+  text-align:center;
+  margin-top:0;
+  color:#16325c;
+}
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
 
-    .form-group {
-      margin-bottom: 5px;
-    }
+.form-group{
+  margin-bottom:5px;
+}
 
-    .form-group.full-width {
-      grid-column: span 2;
-    }
+.form-group.full-width{
+  grid-column:span 2;
+}
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
+label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 15px;
-    }
+input,
+select{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+  font-size:15px;
+}
 
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 13px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background: #16325c;
-      color: white;
-    }
+.fee-manual{
+  display:none;
+  margin-top:8px;
+}
 
-    /* =========================
-       A4 PAGE
-    ========================= */
+button{
+  width:100%;
+  margin-top:12px;
+  padding:13px;
+  font-size:16px;
+  cursor:pointer;
+  border:none;
+  border-radius:5px;
+  background:#16325c;
+  color:white;
+}
 
-    .page {
-      width: 210mm;
-      min-height: 297mm;
-      margin: auto;
-      background: white;
-      position: relative;
-      padding: 12mm 15mm 25mm;
-    }
+button:hover{
+  opacity:.9;
+}
 
-    /* =========================
-       HOSPITAL HEADER
-    ========================= */
+.history-btn{
+  background:#555;
+}
 
-    .hospital-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border-bottom: 3px solid #16325c;
-      padding-bottom: 10px;
-    }
+.backup-btn{
+  background:#287a43;
+}
 
-    .hospital-info {
-      flex: 1;
-      text-align: center;
-    }
+.restore-btn{
+  background:#8a5a00;
+}
 
-    .hospital-header h1 {
-      margin: 0 0 7px;
-      font-size: 24px;
-      color: #16325c;
-    }
+.clear-btn{
+  background:#9b2226;
+}
 
-    .hospital-header p {
-      margin: 4px 0;
-      font-size: 13px;
-    }
+/* =========================
+   HISTORY
+========================= */
 
-    /* =========================
-       PATIENT DETAILS
-    ========================= */
+.history-container{
+  max-width:850px;
+  margin:0 auto 25px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  display:none;
+}
 
-    .patient-title {
-      margin-top: 18px;
-      background: #16325c;
-      color: white;
-      padding: 7px 10px;
-      font-weight: bold;
-      font-size: 14px;
-    }
+.history-container h2{
+  color:#16325c;
+  text-align:center;
+  margin-top:0;
+}
 
-    .patient-details {
-      border: 1px solid #16325c;
-      border-top: none;
-      padding: 12px;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 15px;
-      font-size: 14px;
-    }
+.history-search{
+  margin-bottom:15px;
+}
 
-    .detail {
-      padding-bottom: 5px;
-      border-bottom: 1px solid #ddd;
-    }
+.history-item{
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:12px;
+  margin-bottom:10px;
+}
 
-    .detail.full-row {
-      grid-column: span 2;
-    }
+.history-item strong{
+  color:#16325c;
+}
 
-    .detail.address-row {
-      grid-column: span 3;
-    }
+.history-actions{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
 
-    /* =========================
-       LINE AFTER PATIENT DETAILS
-    ========================= */
+.history-actions button{
+  margin:0;
+  padding:8px;
+  font-size:13px;
+}
 
-    .patient-line {
-      margin-top: 18px;
-      width: 100%;
-    }
+.history-actions .print-old{
+  background:#16325c;
+}
 
-    .line {
-      border-top: 1px solid #000;
-      width: 100%;
-    }
+.history-actions .delete-old{
+  background:#9b2226;
+}
 
-    /* =========================
-       MAIN WRITING AREA
-    ========================= */
+/* =========================
+   A4 PAGE
+========================= */
 
-    .doctor-writing-area {
-      display: grid;
-      grid-template-columns: 35% 65%;
-      min-height: 160mm;
-      margin-top: 10px;
-    }
+.page{
+  width:210mm;
+  min-height:297mm;
+  margin:auto;
+  background:white;
+  position:relative;
+  padding:12mm 15mm 25mm;
+}
 
-    /* =========================
-       LEFT SIDE - सुविधाएँ
-    ========================= */
+/* =========================
+   HEADER
+========================= */
 
-    .left-notes {
-      border-right: 1px solid #000;
-      padding: 10px 12px 10px 0;
-    }
+.hospital-header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  border-bottom:3px solid #16325c;
+  padding-bottom:10px;
+}
 
-    .facilities-section {
-      width: 100%;
-      padding-top: 5px;
-    }
+.hospital-info{
+  flex:1;
+  text-align:center;
+}
 
-    .facilities-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 14px;
-      text-align: center;
-    }
+.hospital-header h1{
+  margin:0 0 7px;
+  font-size:24px;
+  color:#16325c;
+}
 
-    .facility-list {
-      text-align: left;
-      padding-left: 24px;
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.8;
-    }
+.hospital-header p{
+  margin:4px 0;
+  font-size:13px;
+}
 
-    .facility-list li {
-      margin-bottom: 3px;
-    }
+/* =========================
+   PATIENT DETAILS
+========================= */
 
-    /* =========================
-       RIGHT SIDE
-       FULL BLANK WRITING AREA
-    ========================= */
+.patient-title{
+  margin-top:18px;
+  background:#16325c;
+  color:white;
+  padding:7px 10px;
+  font-weight:bold;
+  font-size:14px;
+}
 
-    .right-writing-area {
-      padding: 10px 0 10px 15px;
-      min-height: 160mm;
-    }
+.patient-details{
+  border:1px solid #16325c;
+  border-top:none;
+  padding:12px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:15px;
+  font-size:14px;
+}
 
-    /* =========================
-       FOOTER
-    ========================= */
+.detail{
+  padding-bottom:5px;
+  border-bottom:1px solid #ddd;
+}
 
-    .hospital-footer {
-      position: absolute;
-      bottom: 10mm;
-      left: 15mm;
-      right: 15mm;
-      border-top: 2px solid #16325c;
-      padding-top: 8px;
-      text-align: center;
-      font-size: 11px;
-    }
+.detail.full-row{
+  grid-column:span 2;
+}
 
-    .footer-title {
-      font-weight: bold;
-      color: #16325c;
-      margin-bottom: 4px;
-    }
+.detail.address-row{
+  grid-column:span 3;
+}
 
-    /* =========================
-       MOBILE VIEW
-    ========================= */
+/* =========================
+   LINE
+========================= */
 
-    @media screen and (max-width: 850px) {
+.patient-line{
+  margin-top:18px;
+  width:100%;
+}
 
-      body {
-        padding: 10px;
-      }
+.line{
+  border-top:1px solid #000;
+  width:100%;
+}
 
-      .page {
-        width: 100%;
-        min-height: auto;
-        padding: 20px;
-      }
+/* =========================
+   WRITING AREA
+========================= */
 
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
+.doctor-writing-area{
+  display:grid;
+  grid-template-columns:35% 65%;
+  min-height:160mm;
+  margin-top:10px;
+}
 
-      .form-group.full-width {
-        grid-column: span 1;
-      }
+.left-notes{
+  border-right:1px solid #000;
+  padding:10px 12px 10px 0;
+}
 
-      .hospital-header {
-        flex-direction: column;
-      }
+.facilities-section{
+  width:100%;
+  padding-top:5px;
+}
 
-      .hospital-info {
-        text-align: center;
-      }
+.facilities-title{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:14px;
+  text-align:center;
+}
 
-      .patient-details {
-        grid-template-columns: 1fr;
-      }
+.facility-list{
+  text-align:left;
+  padding-left:24px;
+  margin:0;
+  font-size:14px;
+  line-height:1.8;
+}
 
-      .detail.full-row,
-      .detail.address-row {
-        grid-column: span 1;
-      }
+.facility-list li{
+  margin-bottom:3px;
+}
 
-      .doctor-writing-area {
-        grid-template-columns: 35% 65%;
-      }
+.right-writing-area{
+  padding:10px 0 10px 15px;
+  min-height:160mm;
+}
 
-      .hospital-footer {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin-top: 30px;
-      }
+/* =========================
+   FOOTER
+========================= */
 
-    }
+.hospital-footer{
+  position:absolute;
+  bottom:10mm;
+  left:15mm;
+  right:15mm;
+  border-top:2px solid #16325c;
+  padding-top:8px;
+  text-align:center;
+  font-size:11px;
+}
 
-    /* =========================
-       PRINT SETTINGS
-    ========================= */
+.footer-title{
+  font-weight:bold;
+  color:#16325c;
+  margin-bottom:4px;
+}
 
-    @media print {
+/* =========================
+   MOBILE
+========================= */
 
-      body {
-        padding: 0;
-        background: white;
-      }
+@media screen and (max-width:850px){
 
-      .form-container {
-        display: none;
-      }
+  body{
+    padding:10px;
+  }
 
-      .page {
-        width: 210mm;
-        min-height: 297mm;
-        margin: 0;
-        padding: 12mm 15mm 25mm;
-      }
+  .page{
+    width:100%;
+    min-height:auto;
+    padding:20px;
+  }
 
-      @page {
-        size: A4;
-        margin: 0;
-      }
+  .form-grid{
+    grid-template-columns:1fr;
+  }
 
-    }
+  .form-group.full-width{
+    grid-column:span 1;
+  }
 
-  </style>
+  .hospital-header{
+    flex-direction:column;
+  }
+
+  .patient-details{
+    grid-template-columns:1fr;
+  }
+
+  .detail.full-row,
+  .detail.address-row{
+    grid-column:span 1;
+  }
+
+  .doctor-writing-area{
+    grid-template-columns:35% 65%;
+  }
+
+  .hospital-footer{
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    margin-top:30px;
+  }
+
+  .history-actions{
+    flex-direction:column;
+  }
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+  body{
+    padding:0;
+    background:white;
+  }
+
+  .form-container,
+  .history-container{
+    display:none !important;
+  }
+
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:0;
+    padding:12mm 15mm 25mm;
+  }
+
+  @page{
+    size:A4;
+    margin:0;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
 
-  <!-- =========================
-       PATIENT FORM
-  ========================= -->
+<!-- =========================
+     PATIENT FORM
+========================= -->
 
-  <div class="form-container">
+<div class="form-container">
 
-    <h2>Patient Details</h2>
+  <h2>Patient Details</h2>
 
-    <div class="form-grid">
+  <div class="form-grid">
 
-      <div class="form-group">
-        <label>Patient Name</label>
-        <input type="text" id="patientName">
-      </div>
+    <div class="form-group">
+      <label>Patient Name</label>
+      <input type="text" id="patientName">
+    </div>
 
-      <div class="form-group">
-        <label>OPD Number</label>
-        <input type="text" id="opdNumber" readonly>
-      </div>
+    <div class="form-group">
+      <label>OPD Number</label>
+      <input type="text" id="opdNumber" readonly>
+    </div>
 
-      <div class="form-group">
-        <label>Age</label>
-        <input type="number" id="age">
-      </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" id="age">
+    </div>
 
-      <div class="form-group">
-        <label>Gender</label>
+    <div class="form-group">
+      <label>Gender</label>
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
 
-        <select id="gender">
-          <option value="">Select Gender</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="text" id="mobile">
+    </div>
 
-      <div class="form-group">
-        <label>Mobile Number</label>
-        <input type="text" id="mobile">
-      </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" id="date">
+    </div>
 
-      <div class="form-group">
-        <label>Date</label>
-        <input type="date" id="date">
-      </div>
+    <!-- FEE -->
+    <div class="form-group">
 
-      <div class="form-group">
-        <label>Consultation Fee</label>
-        <input
-          type="text"
-          id="consultationFee"
-          value="₹100"
-          readonly
-        >
-      </div>
+      <label>Consultation Fee</label>
 
-      <div class="form-group full-width">
-        <label>Address</label>
-        <input
-          type="text"
-          id="address"
-          placeholder="Enter Patient Address"
-        >
-      </div>
+      <select id="feeType" onchange="changeFeeType()">
+        <option value="100">₹100</option>
+        <option value="manual">Manual Amount</option>
+      </select>
+
+      <input
+        type="number"
+        id="manualFee"
+        class="fee-manual"
+        placeholder="Enter Amount"
+        min="0"
+      >
 
     </div>
 
-    <button onclick="printLetter()">
-      Print Letterhead
-    </button>
+    <div class="form-group full-width">
+
+      <label>Address</label>
+
+      <input
+        type="text"
+        id="address"
+        placeholder="Enter Patient Address"
+      >
+
+    </div>
 
   </div>
 
 
-  <!-- =========================
-       A4 LETTERHEAD
-  ========================= -->
+  <button onclick="printLetter()">
+    Print Letterhead & Save Patient
+  </button>
 
-  <div class="page">
+  <button
+    class="history-btn"
+    onclick="toggleHistory()"
+  >
+    Patient History
+  </button>
 
+  <button
+    class="backup-btn"
+    onclick="backupData()"
+  >
+    Backup Patient Data
+  </button>
 
-    <!-- HOSPITAL HEADER -->
+  <button
+    class="restore-btn"
+    onclick="document.getElementById('restoreFile').click()"
+  >
+    Restore Patient Data
+  </button>
 
-    <div class="hospital-header">
+  <input
+    type="file"
+    id="restoreFile"
+    accept=".json"
+    style="display:none"
+    onchange="restoreData(event)"
+  >
 
-      <div class="hospital-info">
+  <button
+    class="clear-btn"
+    onclick="clearAllData()"
+  >
+    Delete All Saved Patient Data
+  </button>
 
-        <h1>KUDI Hospital And Rehabilitation Center</h1>
+</div>
 
-        <p>
-          Bheruji Mod, NH52,
-          Near Raghu Palace Hotel,
-          Reengus (Raj.) - 332404
-        </p>
 
-        <p>
-          Contact: 8504001220 |
-          website: www.kudihospital.in
-        </p>
+<!-- =========================
+     HISTORY
+========================= -->
 
-      </div>
+<div
+  class="history-container"
+  id="historyContainer"
+>
 
-    </div>
+  <h2>Patient History</h2>
 
+  <input
+    type="text"
+    id="historySearch"
+    class="history-search"
+    placeholder="Search by Name / Mobile / OPD Number"
+    oninput="showHistory()"
+  >
 
-    <!-- PATIENT DETAILS -->
+  <div id="historyList"></div>
 
-    <div class="patient-title">
-      PATIENT DETAILS
-    </div>
+</div>
 
 
-    <div class="patient-details">
+<!-- =========================
+     A4 LETTERHEAD
+========================= -->
 
+<div class="page">
 
-      <div class="detail full-row">
+  <!-- HEADER -->
 
-        <strong>Patient Name:</strong>
+  <div class="hospital-header">
 
-        <span id="printName"></span>
+    <div class="hospital-info">
 
-      </div>
-
-
-      <div class="detail">
-
-        <strong>OPD No.:</strong>
-
-        <span id="printOPD"></span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <strong>Age / Sex:</strong>
-
-        <span id="printAge"></span>
-        /
-        <span id="printGender"></span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <strong>Mobile:</strong>
-
-        <span id="printMobile"></span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <strong>Date:</strong>
-
-        <span id="printDate"></span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <strong>Consultation Fee:</strong>
-
-        <span id="printFee">₹100</span>
-
-      </div>
-
-
-      <div class="detail address-row">
-
-        <strong>Address:</strong>
-
-        <span id="printAddress"></span>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- LINE -->
-
-    <div class="patient-line">
-      <div class="line"></div>
-    </div>
-
-
-    <!-- =========================
-         MAIN WRITING AREA
-    ========================= -->
-
-    <div class="doctor-writing-area">
-
-
-      <!-- LEFT SIDE : सुविधाएँ -->
-
-      <div class="left-notes">
-
-        <div class="facilities-section">
-
-          <div class="facilities-title">
-            सुविधाएँ
-          </div>
-
-
-          <ul class="facility-list">
-
-            <li>कमर दर्द</li>
-            <li>घुटना दर्द</li>
-            <li>गर्दन दर्द</li>
-            <li>लकवा</li>
-            <li>Cerebral Palsy</li>
-            <li>Post-Operative</li>
-            <li>THR</li>
-            <li>TKR</li>
-            <li>Disc</li>
-            <li>Sciatica pain</li>
-            <li>Disc Bulge</li>
-            <li>Frozen Shoulder</li>
-            <li>Post Fracture Rehab</li>
-            <li>Sports Injury</li>
-            <li>Pediatric Care</li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-
-      <!-- RIGHT SIDE :
-           FULL BLANK WRITING AREA -->
-
-      <div class="right-writing-area">
-      </div>
-
-
-    </div>
-
-
-    <!-- FOOTER -->
-
-    <div class="hospital-footer">
-
-      <div class="footer-title">
+      <h1>
         KUDI Hospital And Rehabilitation Center
-      </div>
+      </h1>
 
-      <div>
+      <p>
         Bheruji Mod, NH52,
         Near Raghu Palace Hotel,
         Reengus (Raj.) - 332404
-      </div>
+      </p>
 
-      <div>
+      <p>
         Contact: 8504001220 |
         website: www.kudihospital.in
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- PATIENT DETAILS -->
+
+  <div class="patient-title">
+    PATIENT DETAILS
+  </div>
+
+  <div class="patient-details">
+
+    <div class="detail full-row">
+
+      <strong>Patient Name:</strong>
+
+      <span id="printName"></span>
+
+    </div>
+
+    <div class="detail">
+
+      <strong>OPD No.:</strong>
+
+      <span id="printOPD"></span>
+
+    </div>
+
+    <div class="detail">
+
+      <strong>Age / Sex:</strong>
+
+      <span id="printAge"></span>
+      /
+      <span id="printGender"></span>
+
+    </div>
+
+    <div class="detail">
+
+      <strong>Mobile:</strong>
+
+      <span id="printMobile"></span>
+
+    </div>
+
+    <div class="detail">
+
+      <strong>Date:</strong>
+
+      <span id="printDate"></span>
+
+    </div>
+
+    <div class="detail">
+
+      <strong>Consultation Fee:</strong>
+
+      <span id="printFee"></span>
+
+    </div>
+
+    <div class="detail address-row">
+
+      <strong>Address:</strong>
+
+      <span id="printAddress"></span>
+
+    </div>
+
+  </div>
+
+
+  <!-- LINE -->
+
+  <div class="patient-line">
+    <div class="line"></div>
+  </div>
+
+
+  <!-- MAIN WRITING AREA -->
+
+  <div class="doctor-writing-area">
+
+    <div class="left-notes">
+
+      <div class="facilities-section">
+
+        <div class="facilities-title">
+          सुविधाएँ
+        </div>
+
+        <ul class="facility-list">
+
+          <li>कमर दर्द</li>
+          <li>घुटना दर्द</li>
+          <li>गर्दन दर्द</li>
+          <li>लकवा</li>
+          <li>Cerebral Palsy</li>
+          <li>Post-Operative</li>
+          <li>THR</li>
+          <li>TKR</li>
+          <li>Disc</li>
+          <li>Sciatica pain</li>
+          <li>Disc Bulge</li>
+          <li>Frozen Shoulder</li>
+          <li>Post Fracture Rehab</li>
+          <li>Sports Injury</li>
+          <li>Pediatric Care</li>
+
+        </ul>
+
       </div>
 
     </div>
 
 
+    <div class="right-writing-area">
+    </div>
+
   </div>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+  <!-- FOOTER -->
 
-  <script>
+  <div class="hospital-footer">
 
-    /* OPD AUTO NUMBER */
+    <div class="footer-title">
+      KUDI Hospital And Rehabilitation Center
+    </div>
 
-    function getOPDNumber() {
+    <div>
+      Bheruji Mod, NH52,
+      Near Raghu Palace Hotel,
+      Reengus (Raj.) - 332404
+    </div>
 
-      let number =
-        Number(
-          localStorage.getItem("kudiOPDNumber")
-        ) || 1;
+    <div>
+      Contact: 8504001220 |
+      website: www.kudihospital.in
+    </div>
 
-      return "OPD/" +
-        String(number).padStart(3, "0");
+  </div>
 
-    }
-
-
-    function increaseOPDNumber() {
-
-      let number =
-        Number(
-          localStorage.getItem("kudiOPDNumber")
-        ) || 1;
-
-      localStorage.setItem(
-        "kudiOPDNumber",
-        number + 1
-      );
-
-    }
+</div>
 
 
-    /* SET CURRENT OPD NUMBER */
+<script>
 
-    document.getElementById("opdNumber").value =
-      getOPDNumber();
+/* =====================================================
+   DATABASE SETTINGS
+===================================================== */
 
-
-    /* SET TODAY DATE */
-
-    document.getElementById("date").value =
-      new Date()
-        .toISOString()
-        .split("T")[0];
+const PATIENT_STORAGE_KEY = "kudiLetterheadPatients";
+const OPD_STORAGE_KEY = "kudiOPDNumber";
 
 
-    /* PRINT LETTER */
+/* =====================================================
+   GET SAVED PATIENTS
+===================================================== */
 
-    function printLetter() {
+function getPatients(){
 
+  try{
 
-      /* CURRENT OPD NUMBER */
+    return JSON.parse(
+      localStorage.getItem(PATIENT_STORAGE_KEY)
+    ) || [];
 
-      const currentOPD =
-        getOPDNumber();
+  }catch(error){
 
+    return [];
 
-      document.getElementById("opdNumber").value =
-        currentOPD;
+  }
 
-
-      /* PATIENT NAME */
-
-      document.getElementById("printName").textContent =
-        document.getElementById("patientName").value;
-
-
-      /* OPD NUMBER */
-
-      document.getElementById("printOPD").textContent =
-        currentOPD;
+}
 
 
-      /* AGE */
+/* =====================================================
+   SAVE PATIENTS
+===================================================== */
 
-      document.getElementById("printAge").textContent =
-        document.getElementById("age").value;
+function savePatients(patients){
 
+  localStorage.setItem(
+    PATIENT_STORAGE_KEY,
+    JSON.stringify(patients)
+  );
 
-      /* GENDER */
-
-      document.getElementById("printGender").textContent =
-        document.getElementById("gender").value;
-
-
-      /* MOBILE */
-
-      document.getElementById("printMobile").textContent =
-        document.getElementById("mobile").value;
+}
 
 
-      /* CONSULTATION FEE */
+/* =====================================================
+   OPD NUMBER
+===================================================== */
 
-      document.getElementById("printFee").textContent =
-        document.getElementById("consultationFee").value;
+function getOPDNumber(){
+
+  let number =
+    Number(
+      localStorage.getItem(OPD_STORAGE_KEY)
+    ) || 1;
+
+  return "OPD/" +
+    String(number).padStart(3,"0");
+
+}
 
 
-      /* ADDRESS */
+function increaseOPDNumber(){
 
-      document.getElementById("printAddress").textContent =
-        document.getElementById("address").value;
+  let number =
+    Number(
+      localStorage.getItem(OPD_STORAGE_KEY)
+    ) || 1;
+
+  localStorage.setItem(
+    OPD_STORAGE_KEY,
+    number + 1
+  );
+
+}
 
 
-      /* DATE */
+/* =====================================================
+   CURRENT OPD
+===================================================== */
 
-      const dateValue =
-        document.getElementById("date").value;
+document.getElementById("opdNumber").value =
+  getOPDNumber();
 
 
-      if (dateValue) {
+/* =====================================================
+   TODAY DATE
+===================================================== */
 
-        document.getElementById("printDate").textContent =
-          new Date(
-            dateValue + "T00:00:00"
-          ).toLocaleDateString("en-IN");
+document.getElementById("date").value =
+  new Date()
+  .toISOString()
+  .split("T")[0];
+
+
+/* =====================================================
+   FEE TYPE
+===================================================== */
+
+function changeFeeType(){
+
+  const feeType =
+    document.getElementById("feeType").value;
+
+  const manualFee =
+    document.getElementById("manualFee");
+
+  if(feeType === "manual"){
+
+    manualFee.style.display = "block";
+    manualFee.focus();
+
+  }else{
+
+    manualFee.style.display = "none";
+    manualFee.value = "";
+
+  }
+
+}
+
+
+/* =====================================================
+   GET CURRENT FEE
+===================================================== */
+
+function getCurrentFee(){
+
+  const feeType =
+    document.getElementById("feeType").value;
+
+  if(feeType === "100"){
+
+    return "₹100";
+
+  }
+
+  const amount =
+    document.getElementById("manualFee").value;
+
+  if(amount === ""){
+
+    return "";
+
+  }
+
+  return "₹" + amount;
+
+}
+
+
+/* =====================================================
+   PRINT LETTER
+===================================================== */
+
+function printLetter(){
+
+  const name =
+    document.getElementById("patientName").value.trim();
+
+  if(!name){
+
+    alert("कृपया Patient Name भरें।");
+    return;
+
+  }
+
+
+  const currentOPD =
+    getOPDNumber();
+
+
+  const age =
+    document.getElementById("age").value;
+
+  const gender =
+    document.getElementById("gender").value;
+
+  const mobile =
+    document.getElementById("mobile").value;
+
+  const address =
+    document.getElementById("address").value;
+
+  const dateValue =
+    document.getElementById("date").value;
+
+  const fee =
+    getCurrentFee();
+
+
+  if(fee === ""){
+
+    alert("कृपया Consultation Fee डालें।");
+    return;
+
+  }
+
+
+  /* =========================
+     PRINT DATA
+  ========================= */
+
+  document.getElementById("opdNumber").value =
+    currentOPD;
+
+  document.getElementById("printName").textContent =
+    name;
+
+  document.getElementById("printOPD").textContent =
+    currentOPD;
+
+  document.getElementById("printAge").textContent =
+    age;
+
+  document.getElementById("printGender").textContent =
+    gender;
+
+  document.getElementById("printMobile").textContent =
+    mobile;
+
+  document.getElementById("printFee").textContent =
+    fee;
+
+  document.getElementById("printAddress").textContent =
+    address;
+
+
+  if(dateValue){
+
+    document.getElementById("printDate").textContent =
+      new Date(
+        dateValue + "T00:00:00"
+      ).toLocaleDateString("en-IN");
+
+  }else{
+
+    document.getElementById("printDate").textContent =
+      "";
+
+  }
+
+
+  /* =========================
+     SAVE PATIENT
+  ========================= */
+
+  const patients =
+    getPatients();
+
+  const patientRecord = {
+
+    id:
+      Date.now(),
+
+    patientName:
+      name,
+
+    opdNumber:
+      currentOPD,
+
+    age:
+      age,
+
+    gender:
+      gender,
+
+    mobile:
+      mobile,
+
+    date:
+      dateValue,
+
+    fee:
+      fee,
+
+    address:
+      address,
+
+    savedAt:
+      new Date().toLocaleString("en-IN")
+
+  };
+
+
+  patients.unshift(
+    patientRecord
+  );
+
+
+  savePatients(
+    patients
+  );
+
+
+  /* =========================
+     INCREASE OPD
+  ========================= */
+
+  increaseOPDNumber();
+
+
+  /* =========================
+     PRINT
+  ========================= */
+
+  setTimeout(function(){
+
+    window.print();
+
+  },300);
+
+}
+
+
+/* =====================================================
+   HISTORY OPEN / CLOSE
+===================================================== */
+
+function toggleHistory(){
+
+  const box =
+    document.getElementById(
+      "historyContainer"
+    );
+
+  if(box.style.display === "block"){
+
+    box.style.display = "none";
+
+  }else{
+
+    box.style.display = "block";
+
+    showHistory();
+
+  }
+
+}
+
+
+/* =====================================================
+   SHOW HISTORY
+===================================================== */
+
+function showHistory(){
+
+  const list =
+    document.getElementById(
+      "historyList"
+    );
+
+  const search =
+    document.getElementById(
+      "historySearch"
+    ).value
+    .toLowerCase()
+    .trim();
+
+
+  let patients =
+    getPatients();
+
+
+  if(search){
+
+    patients =
+      patients.filter(function(patient){
+
+        return (
+
+          patient.patientName
+            .toLowerCase()
+            .includes(search)
+
+          ||
+
+          patient.mobile
+            .toLowerCase()
+            .includes(search)
+
+          ||
+
+          patient.opdNumber
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+      });
+
+  }
+
+
+  if(patients.length === 0){
+
+    list.innerHTML =
+      "<p style='text-align:center;'>कोई रिकॉर्ड नहीं मिला।</p>";
+
+    return;
+
+  }
+
+
+  list.innerHTML = "";
+
+
+  patients.forEach(function(patient){
+
+    const item =
+      document.createElement("div");
+
+    item.className =
+      "history-item";
+
+
+    item.innerHTML = `
+
+      <div>
+        <strong>${escapeHTML(patient.patientName)}</strong>
+      </div>
+
+      <div>
+        OPD: ${escapeHTML(patient.opdNumber)}
+      </div>
+
+      <div>
+        Age/Sex:
+        ${escapeHTML(patient.age || "")}
+        /
+        ${escapeHTML(patient.gender || "")}
+      </div>
+
+      <div>
+        Mobile:
+        ${escapeHTML(patient.mobile || "")}
+      </div>
+
+      <div>
+        Date:
+        ${formatDate(patient.date)}
+      </div>
+
+      <div>
+        Fee:
+        ${escapeHTML(patient.fee || "")}
+      </div>
+
+      <div>
+        Saved:
+        ${escapeHTML(patient.savedAt || "")}
+      </div>
+
+      <div class="history-actions">
+
+        <button
+          class="print-old"
+          onclick="printSavedPatient(${patient.id})"
+        >
+          Print
+        </button>
+
+        <button
+          class="delete-old"
+          onclick="deletePatient(${patient.id})"
+        >
+          Delete
+        </button>
+
+      </div>
+
+    `;
+
+
+    list.appendChild(item);
+
+  });
+
+}
+
+
+/* =====================================================
+   SAFE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(dateValue){
+
+  if(!dateValue){
+
+    return "";
+
+  }
+
+  return new Date(
+    dateValue + "T00:00:00"
+  ).toLocaleDateString("en-IN");
+
+}
+
+
+/* =====================================================
+   PRINT SAVED PATIENT
+===================================================== */
+
+function printSavedPatient(id){
+
+  const patients =
+    getPatients();
+
+  const patient =
+    patients.find(function(item){
+
+      return item.id === id;
+
+    });
+
+
+  if(!patient){
+
+    alert("Patient record नहीं मिला।");
+    return;
+
+  }
+
+
+  document.getElementById("patientName").value =
+    patient.patientName || "";
+
+  document.getElementById("opdNumber").value =
+    patient.opdNumber || "";
+
+  document.getElementById("age").value =
+    patient.age || "";
+
+  document.getElementById("gender").value =
+    patient.gender || "";
+
+  document.getElementById("mobile").value =
+    patient.mobile || "";
+
+  document.getElementById("date").value =
+    patient.date || "";
+
+  document.getElementById("address").value =
+    patient.address || "";
+
+
+  /* FEE */
+
+  if(patient.fee === "₹100"){
+
+    document.getElementById("feeType").value =
+      "100";
+
+    document.getElementById("manualFee").style.display =
+      "none";
+
+  }else{
+
+    document.getElementById("feeType").value =
+      "manual";
+
+    document.getElementById("manualFee").style.display =
+      "block";
+
+    document.getElementById("manualFee").value =
+      String(patient.fee || "")
+      .replace("₹","");
+
+  }
+
+
+  /* PRINT AREA */
+
+  document.getElementById("printName").textContent =
+    patient.patientName || "";
+
+  document.getElementById("printOPD").textContent =
+    patient.opdNumber || "";
+
+  document.getElementById("printAge").textContent =
+    patient.age || "";
+
+  document.getElementById("printGender").textContent =
+    patient.gender || "";
+
+  document.getElementById("printMobile").textContent =
+    patient.mobile || "";
+
+  document.getElementById("printFee").textContent =
+    patient.fee || "";
+
+  document.getElementById("printAddress").textContent =
+    patient.address || "";
+
+  document.getElementById("printDate").textContent =
+    formatDate(patient.date);
+
+
+  setTimeout(function(){
+
+    window.print();
+
+  },300);
+
+}
+
+
+/* =====================================================
+   DELETE ONE PATIENT
+===================================================== */
+
+function deletePatient(id){
+
+  const confirmDelete =
+    confirm(
+      "क्या आप इस patient record को delete करना चाहते हैं?"
+    );
+
+
+  if(!confirmDelete){
+
+    return;
+
+  }
+
+
+  let patients =
+    getPatients();
+
+
+  patients =
+    patients.filter(function(patient){
+
+      return patient.id !== id;
+
+    });
+
+
+  savePatients(
+    patients
+  );
+
+
+  showHistory();
+
+}
+
+
+/* =====================================================
+   BACKUP DATA
+===================================================== */
+
+function backupData(){
+
+  const patients =
+    getPatients();
+
+
+  if(patients.length === 0){
+
+    alert("Backup करने के लिए कोई patient data नहीं है।");
+    return;
+
+  }
+
+
+  const backup = {
+
+    hospital:
+      "KUDI Hospital And Rehabilitation Center",
+
+    backupDate:
+      new Date().toISOString(),
+
+    opdNumber:
+      localStorage.getItem(OPD_STORAGE_KEY) || "1",
+
+    patients:
+      patients
+
+  };
+
+
+  const json =
+    JSON.stringify(
+      backup,
+      null,
+      2
+    );
+
+
+  const blob =
+    new Blob(
+      [json],
+      {
+        type:"application/json"
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(blob);
+
+
+  const a =
+    document.createElement("a");
+
+
+  const date =
+    new Date()
+    .toISOString()
+    .slice(0,10);
+
+
+  a.href =
+    url;
+
+  a.download =
+    "KUDI_Patient_Backup_" +
+    date +
+    ".json";
+
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+
+
+  alert(
+    "Patient data का backup आपके PC में save हो गया है।"
+  );
+
+}
+
+
+/* =====================================================
+   RESTORE DATA
+===================================================== */
+
+function restoreData(event){
+
+  const file =
+    event.target.files[0];
+
+
+  if(!file){
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(e){
+
+      try{
+
+        const backup =
+          JSON.parse(
+            e.target.result
+          );
+
+
+        if(
+          !backup.patients ||
+          !Array.isArray(
+            backup.patients
+          )
+        ){
+
+          alert(
+            "यह valid KUDI patient backup file नहीं है।"
+          );
+
+          return;
+
+        }
+
+
+        const existing =
+          getPatients();
+
+
+        const merged =
+          [
+            ...backup.patients,
+            ...existing
+          ];
+
+
+        /* REMOVE DUPLICATES */
+
+        const unique =
+          Array.from(
+            new Map(
+              merged.map(function(patient){
+
+                return [
+                  patient.id,
+                  patient
+                ];
+
+              })
+            ).values()
+          );
+
+
+        savePatients(
+          unique
+        );
+
+
+        /* RESTORE OPD */
+
+        if(backup.opdNumber){
+
+          const current =
+            Number(
+              localStorage.getItem(
+                OPD_STORAGE_KEY
+              )
+            ) || 1;
+
+          const backupOPD =
+            Number(
+              backup.opdNumber
+            ) || 1;
+
+
+          localStorage.setItem(
+
+            OPD_STORAGE_KEY,
+
+            Math.max(
+              current,
+              backupOPD
+            )
+
+          );
+
+        }
+
+
+        document.getElementById("opdNumber").value =
+          getOPDNumber();
+
+
+        alert(
+          "Patient data successfully restore हो गया।"
+        );
+
+
+        showHistory();
+
+
+      }catch(error){
+
+        alert(
+          "Backup file पढ़ने में समस्या हुई।"
+        );
 
       }
 
-
-      /* INCREASE OPD NUMBER */
-
-      increaseOPDNumber();
+    };
 
 
-      /* PRINT */
+  reader.readAsText(
+    file
+  );
 
-      setTimeout(function() {
 
-        window.print();
+  event.target.value =
+    "";
 
-      }, 200);
+}
 
-    }
 
-  </script>
+/* =====================================================
+   DELETE ALL DATA
+===================================================== */
+
+function clearAllData(){
+
+  const confirmDelete =
+    confirm(
+      "ध्यान दें!\n\nक्या आप सभी saved patient records delete करना चाहते हैं?\n\nअगर backup नहीं है तो यह data वापस नहीं आएगा।"
+    );
+
+
+  if(!confirmDelete){
+
+    return;
+
+  }
+
+
+  localStorage.removeItem(
+    PATIENT_STORAGE_KEY
+  );
+
+
+  localStorage.removeItem(
+    OPD_STORAGE_KEY
+  );
+
+
+  localStorage.setItem(
+    OPD_STORAGE_KEY,
+    "1"
+  );
+
+
+  document.getElementById("opdNumber").value =
+    getOPDNumber();
+
+
+  showHistory();
+
+
+  alert(
+    "सभी saved patient records delete कर दिए गए हैं और OPD फिर से OPD/001 से शुरू होगा।"
+  );
+
+}
+
+</script>
 
 </body>
 </html>
