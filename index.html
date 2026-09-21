@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUDI Hospital Letterhead</title>
-
 <style>
 *{
   box-sizing:border-box;
 }
-
 body{
   margin:0;
   padding:20px;
@@ -17,11 +15,9 @@ body{
   background:#f2f2f2;
   color:#222;
 }
-
 /* =========================
    FORM
 ========================= */
-
 .form-container{
   max-width:850px;
   margin:0 auto 25px;
@@ -29,33 +25,27 @@ body{
   padding:25px;
   border-radius:10px;
 }
-
 .form-container h2{
   text-align:center;
   margin-top:0;
   color:#16325c;
 }
-
 .form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
 }
-
 .form-group{
   margin-bottom:5px;
 }
-
 .form-group.full-width{
   grid-column:span 2;
 }
-
 label{
   display:block;
   margin-bottom:6px;
   font-weight:bold;
 }
-
 input,
 select{
   width:100%;
@@ -64,12 +54,16 @@ select{
   border-radius:5px;
   font-size:15px;
 }
-
-.manual-fee{
-  display:none;
-  margin-top:8px;
+.fixed-fee{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+  font-size:15px;
+  background:#f7f7f7;
+  font-weight:bold;
+  color:#16325c;
 }
-
 button{
   width:100%;
   margin-top:12px;
@@ -81,19 +75,15 @@ button{
   background:#16325c;
   color:white;
 }
-
 button:hover{
   opacity:.9;
 }
-
 .history-btn{
   background:#555;
 }
-
 /* =========================
    PATIENT HISTORY
 ========================= */
-
 .history-container{
   max-width:850px;
   margin:0 auto 25px;
@@ -102,61 +92,50 @@ button:hover{
   border-radius:10px;
   display:none;
 }
-
 .history-container h2{
   text-align:center;
   color:#16325c;
   margin-top:0;
 }
-
 .history-search{
   width:100%;
   margin-bottom:15px;
 }
-
 .history-item{
   border:1px solid #ccc;
   border-radius:7px;
   padding:12px;
   margin-bottom:10px;
 }
-
 .history-name{
   font-weight:bold;
   color:#16325c;
   font-size:16px;
   margin-bottom:5px;
 }
-
 .history-info{
   font-size:13px;
   line-height:1.7;
 }
-
 .history-actions{
   display:flex;
   gap:8px;
   margin-top:10px;
 }
-
 .history-actions button{
   margin:0;
   padding:8px;
   font-size:13px;
 }
-
 .open-btn{
   background:#16325c;
 }
-
 .print-btn{
   background:#287a43;
 }
-
 /* =========================
    A4 PAGE
 ========================= */
-
 .page{
   width:210mm;
   min-height:297mm;
@@ -165,11 +144,9 @@ button:hover{
   position:relative;
   padding:12mm 15mm 25mm;
 }
-
 /* =========================
    HOSPITAL HEADER
 ========================= */
-
 .hospital-header{
   display:flex;
   align-items:center;
@@ -177,27 +154,22 @@ button:hover{
   border-bottom:3px solid #16325c;
   padding-bottom:10px;
 }
-
 .hospital-info{
   flex:1;
   text-align:center;
 }
-
 .hospital-header h1{
   margin:0 0 7px;
   font-size:24px;
   color:#16325c;
 }
-
 .hospital-header p{
   margin:4px 0;
   font-size:13px;
 }
-
 /* =========================
    PATIENT DETAILS
 ========================= */
-
 .patient-title{
   margin-top:18px;
   background:#16325c;
@@ -206,7 +178,6 @@ button:hover{
   font-weight:bold;
   font-size:14px;
 }
-
 .patient-details{
   border:1px solid #16325c;
   border-top:none;
@@ -216,62 +187,50 @@ button:hover{
   gap:15px;
   font-size:14px;
 }
-
 .detail{
   padding-bottom:5px;
   border-bottom:1px solid #ddd;
 }
-
 .detail.full-row{
   grid-column:span 2;
 }
-
 .detail.address-row{
   grid-column:span 3;
 }
-
 /* =========================
    LINE
 ========================= */
-
 .patient-line{
   margin-top:18px;
   width:100%;
 }
-
 .line{
   border-top:1px solid #000;
   width:100%;
 }
-
 /* =========================
    WRITING AREA
 ========================= */
-
 .doctor-writing-area{
   display:grid;
   grid-template-columns:35% 65%;
   min-height:160mm;
   margin-top:10px;
 }
-
 .left-notes{
   border-right:1px solid #000;
   padding:10px 12px 10px 0;
 }
-
 .facilities-section{
   width:100%;
   padding-top:5px;
 }
-
 .facilities-title{
   font-size:20px;
   font-weight:bold;
   margin-bottom:14px;
   text-align:center;
 }
-
 .facility-list{
   text-align:left;
   padding-left:24px;
@@ -279,20 +238,16 @@ button:hover{
   font-size:14px;
   line-height:1.8;
 }
-
 .facility-list li{
   margin-bottom:3px;
 }
-
 .right-writing-area{
   padding:10px 0 10px 15px;
   min-height:160mm;
 }
-
 /* =========================
    FOOTER
 ========================= */
-
 .hospital-footer{
   position:absolute;
   bottom:10mm;
@@ -303,54 +258,42 @@ button:hover{
   text-align:center;
   font-size:11px;
 }
-
 .footer-title{
   font-weight:bold;
   color:#16325c;
   margin-bottom:4px;
 }
-
 /* =========================
    MOBILE
 ========================= */
-
 @media screen and (max-width:850px){
-
   body{
     padding:10px;
   }
-
   .page{
     width:100%;
     min-height:auto;
     padding:20px;
   }
-
   .form-grid{
     grid-template-columns:1fr;
   }
-
   .form-group.full-width{
     grid-column:span 1;
   }
-
   .hospital-header{
     flex-direction:column;
   }
-
   .patient-details{
     grid-template-columns:1fr;
   }
-
   .detail.full-row,
   .detail.address-row{
     grid-column:span 1;
   }
-
   .doctor-writing-area{
     grid-template-columns:35% 65%;
   }
-
   .hospital-footer{
     position:relative;
     left:auto;
@@ -358,35 +301,28 @@ button:hover{
     bottom:auto;
     margin-top:30px;
   }
-
   .history-actions{
     flex-direction:column;
   }
 }
-
 /* =========================
    PRINT
 ========================= */
-
 @media print{
-
   body{
     padding:0;
     background:#fff;
   }
-
   .form-container,
   .history-container{
     display:none !important;
   }
-
   .page{
     width:210mm;
     min-height:297mm;
     margin:0;
     padding:12mm 15mm 25mm;
   }
-
   @page{
     size:A4;
     margin:0;
@@ -394,81 +330,61 @@ button:hover{
 }
 </style>
 </head>
-
 <body>
-
 <!-- =====================================================
      PATIENT ENTRY FORM
 ===================================================== -->
-
 <div class="form-container">
-
   <h2>Patient Details</h2>
-
   <div class="form-grid">
-
     <!-- PATIENT NAME -->
     <div class="form-group">
       <label>Patient Name</label>
-
       <input
         type="text"
         id="patientName"
         autocomplete="off"
       >
     </div>
-
     <!-- OPD -->
     <div class="form-group">
       <label>OPD Number</label>
-
       <input
         type="text"
         id="opdNumber"
         readonly
       >
     </div>
-
     <!-- AGE -->
     <div class="form-group">
       <label>Age</label>
-
       <input
         type="number"
         id="age"
         min="0"
       >
     </div>
-
     <!-- GENDER -->
     <div class="form-group">
       <label>Gender</label>
-
       <select id="gender">
-
         <option value="">
           Select Gender
         </option>
-
         <option value="Male">
           Male
         </option>
-
         <option value="Female">
           Female
         </option>
-
         <option value="Other">
           Other
         </option>
-
       </select>
     </div>
-
     <!-- MOBILE -->
     <div class="form-group">
       <label>Mobile Number</label>
-
       <input
         type="text"
         id="mobile"
@@ -476,116 +392,69 @@ button:hover{
         autocomplete="off"
       >
     </div>
-
     <!-- DATE -->
     <div class="form-group">
       <label>Date</label>
-
       <input
         type="date"
         id="date"
       >
     </div>
-
     <!-- CONSULTANT / DEPARTMENT -->
     <div class="form-group">
       <label>Consultant / Department</label>
-
       <select id="department">
-
         <option value="Physiotherapy Department">
           Physiotherapy Department
         </option>
-
         <option value="Orthopedic Department">
           Orthopedic Department
         </option>
-
         <option value="Neuro Department">
           Neuro Department
         </option>
-
         <option value="Dermatology Department">
           Dermatology Department
         </option>
-
       </select>
     </div>
-
-    <!-- CONSULTATION FEE -->
+    <!-- FIXED CONSULTATION FEE -->
     <div class="form-group">
-
       <label>Consultation Fee</label>
-
-      <select
-        id="feeType"
-        onchange="changeFeeType()"
-      >
-
-        <option value="100">
-          ₹100
-        </option>
-
-        <option value="manual">
-          Manual Amount
-        </option>
-
-      </select>
-
-      <input
-        type="number"
-        id="manualFee"
-        class="manual-fee"
-        placeholder="Enter Amount"
-        min="0"
-      >
-
+      <div class="fixed-fee">
+        ₹400
+      </div>
     </div>
-
     <!-- ADDRESS -->
     <div class="form-group full-width">
-
       <label>Address</label>
-
       <input
         type="text"
         id="address"
         placeholder="Enter Patient Address"
       >
-
     </div>
-
   </div>
-
   <!-- PRINT + SAVE -->
-
   <button onclick="printAndSave()">
     Print Letterhead & Save Patient
   </button>
-
   <!-- HISTORY -->
-
   <button
     class="history-btn"
     onclick="toggleHistory()"
   >
     Patient History
   </button>
-
 </div>
-
-
 <!-- =====================================================
      PATIENT HISTORY
 ===================================================== -->
-
 <div
   class="history-container"
   id="historyContainer"
 >
-
   <h2>Patient History</h2>
-
   <input
     type="text"
     id="historySearch"
@@ -593,173 +462,100 @@ button:hover{
     placeholder="Patient Name / Mobile / OPD Number से Search करें"
     oninput="showHistory()"
   >
-
   <div id="historyList"></div>
-
 </div>
-
-
 <!-- =====================================================
      A4 LETTERHEAD
 ===================================================== -->
-
 <div class="page">
-
   <!-- HOSPITAL HEADER -->
-
   <div class="hospital-header">
-
     <div class="hospital-info">
-
       <h1>
         KUDI Hospital And Rehabilitation Center
       </h1>
-
       <p>
         Bheruji Mod, NH52,
         Near Raghu Palace Hotel,
         Reengus (Raj.) - 332404
       </p>
-
       <p>
         Contact: 8504001220 |
         website: www.kudihospital.in
       </p>
-
     </div>
-
   </div>
-
-
   <!-- PATIENT DETAILS -->
-
   <div class="patient-title">
     PATIENT DETAILS
   </div>
-
   <div class="patient-details">
-
     <div class="detail full-row">
-
       <strong>
         Patient Name:
       </strong>
-
       <span id="printName"></span>
-
     </div>
-
-
     <div class="detail">
-
       <strong>
         OPD No.:
       </strong>
-
       <span id="printOPD"></span>
-
     </div>
-
-
     <div class="detail">
-
       <strong>
         Age / Sex:
       </strong>
-
       <span id="printAge"></span>
       /
       <span id="printGender"></span>
-
     </div>
-
-
     <div class="detail">
-
       <strong>
         Mobile:
       </strong>
-
       <span id="printMobile"></span>
-
     </div>
-
-
     <div class="detail">
-
       <strong>
         Date:
       </strong>
-
       <span id="printDate"></span>
-
     </div>
-
-
     <div class="detail">
-
       <strong>
         Consultation Fee:
       </strong>
-
-      <span id="printFee"></span>
-
+      <span id="printFee">₹400</span>
     </div>
-
-
-    <!-- DEPARTMENT -->
-
     <div class="detail">
-
       <strong>
         Department:
       </strong>
-
       <span id="printDepartment"></span>
-
     </div>
-
-
     <div class="detail address-row">
-
       <strong>
         Address:
       </strong>
-
       <span id="printAddress"></span>
-
     </div>
-
   </div>
-
-
   <!-- LINE -->
-
   <div class="patient-line">
-
     <div class="line"></div>
-
   </div>
-
-
   <!-- =====================================================
        MAIN WRITING AREA
   ===================================================== -->
-
   <div class="doctor-writing-area">
-
     <!-- LEFT -->
-
     <div class="left-notes">
-
       <div class="facilities-section">
-
         <div class="facilities-title">
           सुविधाएँ
         </div>
-
         <ul class="facility-list">
-
           <li>कमर दर्द</li>
           <li>घुटना दर्द</li>
           <li>गर्दन दर्द</li>
@@ -775,108 +571,68 @@ button:hover{
           <li>Post Fracture Rehab</li>
           <li>Sports Injury</li>
           <li>Pediatric Care</li>
-
         </ul>
-
       </div>
-
     </div>
-
-
     <!-- RIGHT BLANK -->
-
     <div class="right-writing-area">
     </div>
-
   </div>
-
-
   <!-- FOOTER -->
-
   <div class="hospital-footer">
-
     <div class="footer-title">
       KUDI Hospital And Rehabilitation Center
     </div>
-
     <div>
       Bheruji Mod, NH52,
       Near Raghu Palace Hotel,
       Reengus (Raj.) - 332404
     </div>
-
     <div>
       Contact: 8504001220 |
       website: www.kudihospital.in
     </div>
-
   </div>
-
 </div>
-
-
 <script>
-
 /* =====================================================
    STORAGE KEYS
 ===================================================== */
-
 const PATIENT_STORAGE_KEY =
   "kudi_letterhead_patient_database";
-
 const OPD_STORAGE_KEY =
   "kudi_letterhead_next_opd";
-
-
 /* =====================================================
    GET PATIENT DATABASE
 ===================================================== */
-
 function getPatients(){
-
   try{
-
     const data =
       localStorage.getItem(
         PATIENT_STORAGE_KEY
       );
-
     if(!data){
       return [];
     }
-
     return JSON.parse(data);
-
   }catch(error){
-
     return [];
-
   }
-
 }
-
-
 /* =====================================================
    SAVE DATABASE
 ===================================================== */
-
 function savePatients(patients){
-
   localStorage.setItem(
     PATIENT_STORAGE_KEY,
     JSON.stringify(patients)
   );
-
 }
-
-
 /* =====================================================
    OPD NUMBER
    ALWAYS STARTS FROM 001
 ===================================================== */
-
 function getNextOPDNumber(){
-
   let number =
     parseInt(
       localStorage.getItem(
@@ -884,28 +640,19 @@ function getNextOPDNumber(){
       ),
       10
     );
-
   if(
     isNaN(number) ||
     number < 1
   ){
-
     number = 1;
-
   }
-
   return "OPD/" +
     String(number).padStart(3,"0");
-
 }
-
-
 /* =====================================================
    INCREASE OPD
 ===================================================== */
-
 function increaseOPD(){
-
   let number =
     parseInt(
       localStorage.getItem(
@@ -913,527 +660,291 @@ function increaseOPD(){
       ),
       10
     );
-
   if(
     isNaN(number) ||
     number < 1
   ){
-
     number = 1;
-
   }
-
   localStorage.setItem(
     OPD_STORAGE_KEY,
     String(number + 1)
   );
-
 }
-
-
 /* =====================================================
    INITIAL OPD
 ===================================================== */
-
 document.getElementById(
   "opdNumber"
 ).value =
   getNextOPDNumber();
-
-
 /* =====================================================
    TODAY DATE
 ===================================================== */
-
 document.getElementById(
   "date"
 ).value =
   new Date()
   .toISOString()
   .split("T")[0];
-
-
-/* =====================================================
-   FEE TYPE
-===================================================== */
-
-function changeFeeType(){
-
-  const type =
-    document.getElementById(
-      "feeType"
-    ).value;
-
-  const manual =
-    document.getElementById(
-      "manualFee"
-    );
-
-  if(type === "manual"){
-
-    manual.style.display =
-      "block";
-
-    manual.focus();
-
-  }else{
-
-    manual.style.display =
-      "none";
-
-    manual.value =
-      "";
-
-  }
-
-}
-
-
-/* =====================================================
-   GET FEE
-===================================================== */
-
-function getCurrentFee(){
-
-  const type =
-    document.getElementById(
-      "feeType"
-    ).value;
-
-  if(type === "100"){
-
-    return "₹100";
-
-  }
-
-  const amount =
-    document.getElementById(
-      "manualFee"
-    ).value.trim();
-
-  if(!amount){
-
-    return "";
-
-  }
-
-  return "₹" + amount;
-
-}
-
-
 /* =====================================================
    PRINT + SAVE
 ===================================================== */
-
 function printAndSave(){
-
   const name =
     document.getElementById(
       "patientName"
     ).value.trim();
-
-
   if(!name){
-
     alert(
       "कृपया Patient Name भरें।"
     );
-
     document.getElementById(
       "patientName"
     ).focus();
-
     return;
-
   }
-
-
-  const fee =
-    getCurrentFee();
-
-
-  if(!fee){
-
-    alert(
-      "कृपया Consultation Fee डालें।"
-    );
-
-    return;
-
-  }
-
-
+  /* FIXED FEE */
+  const fee = "₹400";
   const opd =
     getNextOPDNumber();
-
-
   const age =
     document.getElementById(
       "age"
     ).value;
-
-
   const gender =
     document.getElementById(
       "gender"
     ).value;
-
-
   const mobile =
     document.getElementById(
       "mobile"
     ).value.trim();
-
-
   const date =
     document.getElementById(
       "date"
     ).value;
-
-
   const address =
     document.getElementById(
       "address"
     ).value.trim();
-
-
   const department =
     document.getElementById(
       "department"
     ).value;
-
-
   /* =================================================
      PUT DATA ON LETTERHEAD
   ================================================= */
-
   document.getElementById(
     "printName"
   ).textContent =
     name;
-
-
   document.getElementById(
     "printOPD"
   ).textContent =
     opd;
-
-
   document.getElementById(
     "printAge"
   ).textContent =
     age;
-
-
   document.getElementById(
     "printGender"
   ).textContent =
     gender;
-
-
   document.getElementById(
     "printMobile"
   ).textContent =
     mobile;
-
-
   document.getElementById(
     "printFee"
   ).textContent =
     fee;
-
-
   document.getElementById(
     "printDepartment"
   ).textContent =
     department;
-
-
   document.getElementById(
     "printAddress"
   ).textContent =
     address;
-
-
   document.getElementById(
     "printDate"
   ).textContent =
     formatDate(date);
-
-
   /* =================================================
      SAVE PATIENT AUTOMATICALLY
   ================================================= */
-
   const patients =
     getPatients();
-
-
   const patient = {
-
     id:
       Date.now(),
-
     patientName:
       name,
-
     opdNumber:
       opd,
-
     age:
       age,
-
     gender:
       gender,
-
     mobile:
       mobile,
-
     date:
       date,
-
     fee:
       fee,
-
     department:
       department,
-
     address:
       address,
-
     savedAt:
       new Date().toLocaleString(
         "en-IN"
       )
-
   };
-
-
   patients.unshift(
     patient
   );
-
-
   savePatients(
     patients
   );
-
-
   /* =================================================
      NEXT OPD NUMBER
   ================================================= */
-
   increaseOPD();
-
-
   document.getElementById(
     "opdNumber"
   ).value =
     getNextOPDNumber();
-
-
   /* =================================================
      PRINT
   ================================================= */
-
   setTimeout(
     function(){
-
       window.print();
-
     },
     300
   );
-
 }
-
-
 /* =====================================================
    FORMAT DATE
 ===================================================== */
-
 function formatDate(value){
-
   if(!value){
-
     return "";
-
   }
-
   return new Date(
     value + "T00:00:00"
   ).toLocaleDateString(
     "en-IN"
   );
-
 }
-
-
 /* =====================================================
    HISTORY TOGGLE
 ===================================================== */
-
 function toggleHistory(){
-
   const box =
     document.getElementById(
       "historyContainer"
     );
-
-
   if(
     box.style.display ===
     "block"
   ){
-
     box.style.display =
       "none";
-
   }else{
-
     box.style.display =
       "block";
-
     showHistory();
-
   }
-
 }
-
-
 /* =====================================================
    SHOW HISTORY
 ===================================================== */
-
 function showHistory(){
-
   const list =
     document.getElementById(
       "historyList"
     );
-
-
   const search =
     document.getElementById(
       "historySearch"
     ).value
     .toLowerCase()
     .trim();
-
-
   let patients =
     getPatients();
-
-
   if(search){
-
     patients =
       patients.filter(
         function(patient){
-
           return (
-
             String(
               patient.patientName || ""
             )
             .toLowerCase()
             .includes(search)
-
             ||
-
             String(
               patient.mobile || ""
             )
             .toLowerCase()
             .includes(search)
-
             ||
-
             String(
               patient.opdNumber || ""
             )
             .toLowerCase()
             .includes(search)
-
             ||
-
             String(
               patient.department || ""
             )
             .toLowerCase()
             .includes(search)
-
           );
-
         }
       );
-
   }
-
-
   if(
     patients.length === 0
   ){
-
     list.innerHTML =
       "<p style='text-align:center;'>कोई patient record नहीं मिला।</p>";
-
     return;
-
   }
-
-
   list.innerHTML = "";
-
-
   patients.forEach(
     function(patient){
-
       const item =
         document.createElement(
           "div"
         );
-
-
       item.className =
         "history-item";
-
-
       item.innerHTML = `
-
         <div class="history-name">
-
           ${escapeHTML(
             patient.patientName
           )}
-
         </div>
-
-
         <div class="history-info">
-
           <strong>OPD:</strong>
           ${escapeHTML(
             patient.opdNumber
           )}
-
           <br>
-
           <strong>Date:</strong>
           ${formatDate(
             patient.date
           )}
-
           <br>
-
           <strong>Department:</strong>
           ${escapeHTML(
             patient.department || ""
           )}
-
           <br>
-
           <strong>Age / Sex:</strong>
           ${escapeHTML(
             patient.age || ""
@@ -1442,401 +953,232 @@ function showHistory(){
           ${escapeHTML(
             patient.gender || ""
           )}
-
           <br>
-
           <strong>Mobile:</strong>
           ${escapeHTML(
             patient.mobile || ""
           )}
-
           <br>
-
           <strong>Fee:</strong>
-          ${escapeHTML(
-            patient.fee || ""
-          )}
-
+          ₹400
         </div>
-
-
         <div class="history-actions">
-
           <button
             class="open-btn"
             onclick="openPatient(${patient.id})"
           >
             Open / Edit
           </button>
-
-
           <button
             class="print-btn"
             onclick="printOldPatient(${patient.id})"
           >
             Print
           </button>
-
         </div>
-
       `;
-
-
       list.appendChild(
         item
       );
-
     }
   );
-
 }
-
-
 /* =====================================================
    ESCAPE HTML
 ===================================================== */
-
 function escapeHTML(value){
-
   return String(
     value || ""
   )
-
   .replace(
     /&/g,
     "&amp;"
   )
-
   .replace(
     /</g,
     "&lt;"
   )
-
   .replace(
     />/g,
     "&gt;"
   )
-
   .replace(
     /"/g,
     "&quot;"
   )
-
   .replace(
     /'/g,
     "&#039;"
   );
-
 }
-
-
 /* =====================================================
    OPEN OLD PATIENT
 ===================================================== */
-
 function openPatient(id){
-
   const patients =
     getPatients();
-
-
   const patient =
     patients.find(
       function(item){
-
         return item.id === id;
-
       }
     );
-
-
   if(!patient){
-
     alert(
       "Patient record नहीं मिला।"
     );
-
     return;
-
   }
-
-
   document.getElementById(
     "patientName"
   ).value =
     patient.patientName || "";
-
-
   document.getElementById(
     "age"
   ).value =
     patient.age || "";
-
-
   document.getElementById(
     "gender"
   ).value =
     patient.gender || "";
-
-
   document.getElementById(
     "mobile"
   ).value =
     patient.mobile || "";
-
-
   document.getElementById(
     "date"
   ).value =
     patient.date || "";
-
-
   document.getElementById(
     "address"
   ).value =
     patient.address || "";
-
-
   /* =================================================
      DEPARTMENT
   ================================================= */
-
   const departmentSelect =
     document.getElementById(
       "department"
     );
-
-
   const departmentValue =
     patient.department ||
     "Physiotherapy Department";
-
-
   const departmentExists =
     Array.from(
       departmentSelect.options
     ).some(
       function(option){
-
         return option.value ===
           departmentValue;
-
       }
     );
-
-
   if(departmentExists){
-
     departmentSelect.value =
       departmentValue;
-
   }else{
-
     departmentSelect.value =
       "Physiotherapy Department";
-
   }
-
-
   /* =================================================
-     FEE
+     NEW OPD NUMBER
   ================================================= */
-
-  if(
-    patient.fee === "₹100"
-  ){
-
-    document.getElementById(
-      "feeType"
-    ).value =
-      "100";
-
-
-    document.getElementById(
-      "manualFee"
-    ).style.display =
-      "none";
-
-  }else{
-
-    document.getElementById(
-      "feeType"
-    ).value =
-      "manual";
-
-
-    document.getElementById(
-      "manualFee"
-    ).style.display =
-      "block";
-
-
-    document.getElementById(
-      "manualFee"
-    ).value =
-      String(
-        patient.fee || ""
-      ).replace(
-        "₹",
-        ""
-      );
-
-  }
-
-
-  /* =================================================
-     IMPORTANT:
-     OPEN OLD PATIENT FOR NEW PRESCRIPTION
-
-     New OPD number will be generated.
-  ================================================= */
-
   document.getElementById(
     "opdNumber"
   ).value =
     getNextOPDNumber();
-
-
   /* CLOSE HISTORY */
-
   document.getElementById(
     "historyContainer"
   ).style.display =
     "none";
-
-
   /* SCROLL TO FORM */
-
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
-
-
   document.getElementById(
     "patientName"
   ).focus();
-
 }
-
-
 /* =====================================================
    PRINT OLD PATIENT RECORD
 ===================================================== */
-
 function printOldPatient(id){
-
   const patients =
     getPatients();
-
-
   const patient =
     patients.find(
       function(item){
-
         return item.id === id;
-
       }
     );
-
-
   if(!patient){
-
     alert(
       "Patient record नहीं मिला।"
     );
-
     return;
-
   }
-
-
   document.getElementById(
     "printName"
   ).textContent =
     patient.patientName || "";
-
-
   document.getElementById(
     "printOPD"
   ).textContent =
     patient.opdNumber || "";
-
-
   document.getElementById(
     "printAge"
   ).textContent =
     patient.age || "";
-
-
   document.getElementById(
     "printGender"
   ).textContent =
     patient.gender || "";
-
-
   document.getElementById(
     "printMobile"
   ).textContent =
     patient.mobile || "";
-
-
   document.getElementById(
     "printDate"
   ).textContent =
     formatDate(
       patient.date
     );
-
-
+  /*
+     पुराने रिकॉर्ड भी अब ₹400 दिखाएँगे
+  */
   document.getElementById(
     "printFee"
   ).textContent =
-    patient.fee || "";
-
-
+    "₹400";
   document.getElementById(
     "printDepartment"
   ).textContent =
     patient.department ||
     "Physiotherapy Department";
-
-
   document.getElementById(
     "printAddress"
   ).textContent =
     patient.address || "";
-
-
   setTimeout(
     function(){
-
       window.print();
-
     },
     300
   );
-
 }
-
-
 /* =====================================================
    KEEP OPD NUMBER CORRECT AFTER PAGE LOAD
 ===================================================== */
-
 window.addEventListener(
   "load",
   function(){
-
     document.getElementById(
       "opdNumber"
     ).value =
       getNextOPDNumber();
-
   }
 );
-
 </script>
-
 </body>
 </html>
